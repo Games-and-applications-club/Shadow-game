@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://cfc23yi78atxg"]
+[gd_scene load_steps=8 format=4 uid="uid://cfc23yi78atxg"]
 
 [ext_resource type="Texture2D" uid="uid://dfkyaojv0wdi" path="res://Assets/testTileset.png" id="1_enll3"]
 [ext_resource type="PackedScene" uid="uid://brctofar585na" path="res://Scenes/box.tscn" id="2_1kuu2"]
+[ext_resource type="PackedScene" uid="uid://b6aljtmdqihsk" path="res://Scenes/testcharacter.tscn" id="3_c0d6t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_enll3"]
 texture = ExtResource("1_enll3")
@@ -263,3 +264,6 @@ tile_set = SubResource("TileSet_c0d6t")
 
 [node name="Box" parent="." instance=ExtResource("2_1kuu2")]
 position = Vector2(543, 624)
+
+[node name="Testcharacter" parent="." instance=ExtResource("3_c0d6t")]
+position = Vector2(77, 586)
