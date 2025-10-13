@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpdqpp7cr55t"]
+
+[ext_resource type="Script" uid="uid://dvwuetfsy31y6" path="res://MainMenu/main_menu.gd" id="1_b76km"]
+[ext_resource type="Theme" uid="uid://tuotshb020ee" path="res://Assets/Default.tres" id="2_lbqne"]
+[ext_resource type="Texture2D" uid="uid://o8i0dimljotb" path="res://Assets/icon.svg" id="3_430ii"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_b76km")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_offset = Vector2(-3, -6)
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -107.0
+offset_top = -1.0
+offset_right = 108.0
+offset_bottom = 136.0
+grow_horizontal = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("2_lbqne")
+text = "Start
+"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("2_lbqne")
+text = "Options"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("2_lbqne")
+text = "Quit"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -138)
+texture = ExtResource("3_430ii")
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
