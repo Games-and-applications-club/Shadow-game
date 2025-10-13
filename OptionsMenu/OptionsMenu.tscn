@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://crah7tpundp8j"]
+[gd_scene load_steps=3 format=3 uid="uid://crah7tpundp8j"]
 
 [ext_resource type="Script" uid="uid://dvm1qtrgii18l" path="res://OptionsMenu/options_menu.gd" id="1_1ef0r"]
+[ext_resource type="AudioStream" uid="uid://c5ifq82i8wngu" path="res://MusicAndSound/Music/01. Risk of Rain.mp3" id="2_v8lr7"]
 
 [node name="OptionsMenu" type="Node2D"]
 script = ExtResource("1_1ef0r")
@@ -30,21 +31,21 @@ grow_vertical = 2
 layout_mode = 2
 text = "Master Volume:"
 
-[node name="MasterVolSlider" type="HSlider" parent="VBoxContainer"]
+[node name="MasterSlider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
 
 [node name="MusicVolLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Music Volume"
 
-[node name="MusicVolSlider" type="HSlider" parent="VBoxContainer"]
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
 
 [node name="SFXVolLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "SFX Volume"
 
-[node name="SFXVolSlider" type="HSlider" parent="VBoxContainer"]
+[node name="SFXSlider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
 
 [node name="Blank" type="Label" parent="VBoxContainer"]
@@ -54,7 +55,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Full Mute:"
 
-[node name="Mute" type="CheckButton" parent="VBoxContainer"]
+[node name="MuteToggle" type="CheckButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 
@@ -64,3 +65,9 @@ text = "Resolutions:"
 
 [node name="Resolutions" type="OptionButton" parent="VBoxContainer"]
 layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_v8lr7")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
