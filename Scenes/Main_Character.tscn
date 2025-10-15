@@ -26,3 +26,6 @@ sprite_frames = SubResource("SpriteFrames_0bwfo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6.317972, 5.240506)
 shape = SubResource("RectangleShape2D_et8ae")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
