@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var gravity: float = 900.0
 
 # Clone / recording settings
-@export var clone_scene: PackedScene = preload("res://Main_Character.tscn")
+@export var clone_scene: PackedScene = preload("res://Scenes/Main_Character.tscn")
 @export var max_record_time: float = 5.0 # maximum seconds to record when holding F
 
 # Internal state

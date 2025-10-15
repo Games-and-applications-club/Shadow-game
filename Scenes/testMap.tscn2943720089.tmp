@@ -270,4 +270,4 @@ position = Vector2(76, 567.99994)
 position = Vector2(244, 482)
 
 [node name="Lever" parent="." instance=ExtResource("4_upetf")]
-position = Vector2(589, 607)
+position = Vector2(300, -4)
