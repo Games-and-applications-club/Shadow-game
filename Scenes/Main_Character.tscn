@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://d31r43aw4ra4l"]
 
-[ext_resource type="Script" uid="uid://bsv2lxweu2ncs" path="res://character_body_2d.gd" id="1_on5e3"]
-[ext_resource type="Texture2D" uid="uid://o8i0dimljotb" path="res://Assets/icon.svg" id="2_r0tci"]
+[ext_resource type="Script" uid="uid://bsv2lxweu2ncs" path="res://Scripts/character_body_2d.gd" id="1_mnji8"]
+[ext_resource type="Texture2D" uid="uid://o8i0dimljotb" path="res://Assets/icon.svg" id="2_o8cir"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0bwfo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_r0tci")
+"texture": ExtResource("2_o8cir")
 }],
 "loop": true,
 "name": &"default",
@@ -16,9 +16,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_et8ae"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Main_Character" type="CharacterBody2D"]
 scale = Vector2(0.23320158, 0.23976608)
-script = ExtResource("1_on5e3")
+script = ExtResource("1_mnji8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0bwfo")
