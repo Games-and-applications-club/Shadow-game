@@ -14,4 +14,4 @@ func _on_options_pressed() -> void:
 
 
 func _on_exit_pressed() -> void:
-	get_tree().quit
+	get_tree().quit()
