@@ -47,11 +47,13 @@ _data = {
 [node name="PauseMenu" type="Control"]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 7.0000005
+anchor_bottom = 7.0000005
+offset_right = -6912.0005
+offset_bottom = -3888.0005
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(7, 7)
 script = ExtResource("1_yfjwr")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -122,6 +124,7 @@ layout_mode = 2
 size_flags_vertical = 6
 min_value = 0.6
 max_value = 1.2
+step = 0.01
 value = 0.6
 
 [node name="MusicLabel" type="Label" parent="PanelContainer/OptionsContainer"]
@@ -135,6 +138,7 @@ layout_mode = 2
 size_flags_vertical = 6
 min_value = 0.6
 max_value = 1.2
+step = 0.01
 value = 0.6
 
 [node name="SFXLabel" type="Label" parent="PanelContainer/OptionsContainer"]
@@ -148,6 +152,7 @@ layout_mode = 2
 size_flags_vertical = 6
 min_value = 0.6
 max_value = 1.2
+step = 0.01
 value = 0.6
 
 [node name="FullMuteLabel" type="Label" parent="PanelContainer/OptionsContainer"]
