@@ -35,7 +35,7 @@ func _on_master_slider_value_changed(value: float) -> void:
 		AudioServer.set_bus_mute(AudioServer.get_bus_index(bus_name), should_mute)
 
 	settings.save_volume_settings(value, music_slider.value, sfx_slider.value, mute_toggle.button_pressed)
-
+	print_debug("Master vol changed to:",value)
 func _on_music_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), lerp(-80, 0, value))
 	settings.save_volume_settings(master_slider.value, value, sfx_slider.value, mute_toggle.button_pressed)
