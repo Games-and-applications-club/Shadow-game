@@ -73,21 +73,39 @@ func _on_back_button_pressed() -> void:
 
 func _on_master_vol_slider_changed(value: float) -> void:
 	var db = volume_to_db(value)
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), db)
-
 	var should_mute = value <= 0.6
+
+	var master_index = AudioServer.get_bus_index("Master")
+	AudioServer.set_bus_mute(master_index, should_mute)
+	if not should_mute:
+		AudioServer.set_bus_volume_db(master_index, db)
+
+	# Optional: mute other buses too
 	for bus_name in ["Music", "SFX"]:
-		AudioServer.set_bus_mute(AudioServer.get_bus_index(bus_name), should_mute)
+		var index = AudioServer.get_bus_index(bus_name)
+		AudioServer.set_bus_mute(index, should_mute)
 
 	settings.save_volume_settings(value, music_slider.value, sfx_slider.value, mute_toggle.button_pressed)
 	print_debug("Master vol changed to:",value)
 
 func _on_music_vol_slider_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), lerp(-80, 0, value))
+	var music_index = AudioServer.get_bus_index("Music")
+	var should_mute = value <= 0.6
+
+	AudioServer.set_bus_mute(music_index, should_mute)
+	if not should_mute:
+		AudioServer.set_bus_volume_db(music_index, volume_to_db(value))
+
 	settings.save_volume_settings(master_slider.value, value, sfx_slider.value, mute_toggle.button_pressed)
 
 func _on_sfx_vol_slider_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), lerp(-80, 0, value))
+	var sfx_index = AudioServer.get_bus_index("SFX")
+	var should_mute = value <= 0.6
+
+	AudioServer.set_bus_mute(sfx_index, should_mute)
+	if not should_mute:
+		AudioServer.set_bus_volume_db(sfx_index, volume_to_db(value))
+
 	settings.save_volume_settings(master_slider.value, music_slider.value, value, mute_toggle.button_pressed)
 
 func _on_mute_toggle_toggled(toggled_on: bool) -> void:
@@ -95,7 +113,5 @@ func _on_mute_toggle_toggled(toggled_on: bool) -> void:
 	settings.save_volume_settings(master_slider.value, music_slider.value, sfx_slider.value, toggled_on)
 
 func volume_to_db(value: float) -> float:
-	if value <= 0.6:
-		return -80.0
-	var normalized = (value - 0.6) / (1.2 - 0.6)
+	var normalized = clamp((value - 0.6) / (1.2 - 0.6), 0.0, 1.0)
 	return lerp(-40.0, 0.0, normalized)
