@@ -105,6 +105,60 @@ text = "Quit"
 [node name="OptionsContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 
+[node name="BackButton" type="Button" parent="PanelContainer/OptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+text = "Back"
+
+[node name="MasterLabel" type="Label" parent="PanelContainer/OptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Master Volume:"
+
+[node name="MasterVolSlider" type="HSlider" parent="PanelContainer/OptionsContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+min_value = 0.6
+max_value = 1.2
+value = 0.6
+
+[node name="MusicLabel" type="Label" parent="PanelContainer/OptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Music Volume:"
+
+[node name="MusicVolSlider" type="HSlider" parent="PanelContainer/OptionsContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+min_value = 0.6
+max_value = 1.2
+value = 0.6
+
+[node name="SFXLabel" type="Label" parent="PanelContainer/OptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "SFX Volume:"
+
+[node name="SFXVolSlider" type="HSlider" parent="PanelContainer/OptionsContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+min_value = 0.6
+max_value = 1.2
+value = 0.6
+
+[node name="FullMuteLabel" type="Label" parent="PanelContainer/OptionsContainer"]
+layout_mode = 2
+text = "Mute:"
+
+[node name="MuteToggle" type="CheckButton" parent="PanelContainer/OptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_visv4")
@@ -114,3 +168,8 @@ libraries = {
 [connection signal="pressed" from="PanelContainer/PauseContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="PanelContainer/PauseContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="PanelContainer/PauseContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PanelContainer/OptionsContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="changed" from="PanelContainer/OptionsContainer/MasterVolSlider" to="." method="_on_master_vol_slider_changed"]
+[connection signal="changed" from="PanelContainer/OptionsContainer/MusicVolSlider" to="." method="_on_music_vol_slider_changed"]
+[connection signal="changed" from="PanelContainer/OptionsContainer/SFXVolSlider" to="." method="_on_sfx_vol_slider_changed"]
+[connection signal="toggled" from="PanelContainer/OptionsContainer/MuteToggle" to="." method="_on_mute_toggle_toggled"]
