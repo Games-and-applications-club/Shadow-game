@@ -26,11 +26,6 @@ func _ready():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), lerp(-80, 0, music_slider.value))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), lerp(-80, 0, sfx_slider.value))
 
-	# Connect sliders
-	master_slider.connect("value_changed", Callable(self, "_on_master_vol_slider_changed"))
-	music_slider.connect("value_changed", Callable(self, "_on_music_vol_slider_changed"))
-	sfx_slider.connect("value_changed", Callable(self, "_on_sfx_vol_slider_changed"))
-	mute_toggle.connect("toggled", Callable(self, "_on_mute_toggle_toggled"))
 
 func pause():
 	get_tree().paused = true
