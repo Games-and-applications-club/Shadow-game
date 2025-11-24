@@ -17,7 +17,7 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_et8ae"]
 
-[node name="Main_Character" type="CharacterBody2D"]
+[node name="Main_Character2" type="CharacterBody2D"]
 scale = Vector2(0.23320158, 0.23976608)
 script = ExtResource("1_mnji8")
 
@@ -29,9 +29,10 @@ scale = Vector2(6.317972, 5.240506)
 shape = SubResource("RectangleShape2D_et8ae")
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_o8cir")]
-offset_top = 4.17073
-offset_right = 1.9073486e-06
-offset_bottom = 4.17073
+offset_left = 188.67798
+offset_top = -367.02435
+offset_right = 188.67798
+offset_bottom = -367.02435
 
 [node name="Camera2D" type="Camera2D" parent="PauseMenu"]
 position = Vector2(-1.9073487e-07, -0.417073)

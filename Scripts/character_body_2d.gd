@@ -1,9 +1,15 @@
 extends CharacterBody2D
 
 # Movement tuning
-@export var speed: float = 200.0
-@export var jump_velocity: float = -400.0
-@export var gravity: float = 900.0
+@export var speed := 200.0
+@export var gravity := 900.0
+@export var min_jump_force := -100.0  # Short tap
+@export var max_jump_force := -300.0  # Full hold
+@export var max_jump_hold := 0.3      # Seconds to reach full jump
+
+var jump_pressed := false
+var jump_hold_time := 0.0
+var jump_active := false  # true only during a valid jump
 
 # Clone / recording settings
 @export var clone_scene: PackedScene = preload("res://Scenes/Main_Character.tscn")
@@ -22,49 +28,54 @@ var replay_data: Array = []
 var replay_index: int = 0
 var is_replaying: bool = false
 
-func _ready() -> void:
-	# If this node is a clone that shouldn't start its own recording/spawn, make sure flags are clear
-	if is_clone:
-		recording = false
+#variables for PointClone
 
-func _physics_process(delta: float) -> void:
-	if is_clone:
-		_process_clone(delta)
-		return
 
-	# --- Player logic (records input while active) ---
-	var dir := Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+#shadow
+var buffer_max_time := 3.0
+var buffer_max_frames := int(buffer_max_time / Engine.get_physics_ticks_per_second())
 
-	velocity.x = dir * speed
+	
+func _physics_process(delta):
+	print("tick Main")
 
-	var jump_pressed := Input.is_action_just_pressed("ui_up")
-	if jump_pressed and is_on_floor():
-		velocity.y = jump_velocity
+	Global.record_input()
 
-	if not is_on_floor():
-		velocity.y += gravity * delta
+	print("input_buffer reference:", Global.input_buffer)
+	print("Buffer size:", Global.input_buffer.size())
+	print("Global buffer size:", Global.input_buffer.size())
+
+	# Horizontal movement — constant speed, no sliding
+	velocity.x = 0.0
+	if Input.is_action_pressed("move_left"):
+		velocity.x = -speed
+	elif Input.is_action_pressed("move_right"):
+		velocity.x = speed
+	# Gravity
+	velocity.y += gravity * delta
+
+	# Jump logic
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		jump_pressed = true
+		jump_active = true
+		jump_hold_time = 0.0
+		
+	# Continue jump while held and within time
+	if jump_active and Input.is_action_pressed("jump"):
+		jump_hold_time += delta
+		var t: float = clamp(jump_hold_time / max_jump_hold, 0.0, 1.0)
+		velocity.y = lerp(min_jump_force, max_jump_force, t)
+
+	# End jump if released or max time reached
+	if Input.is_action_just_released("jump") or jump_hold_time >= max_jump_hold:
+		jump_active = false
 
 	move_and_slide()
 
-	# Recording is controlled by holding the F key
-	# Use the project input action 'record' (mapped to F) to control recording
-	var f_down := Input.is_action_pressed("record")
-	if f_down and not recording:
-		_start_recording()
 
-	if recording:
-		# capture this physics frame
-		recorded_frames.append({"dir": dir, "jump": jump_pressed})
-		record_timer += delta
-		# stop recording if we reached max_record_time
-		if record_timer >= max_record_time:
-			recording = false
-			_finish_recording()
 
-	# when F is released, finish recording and spawn the clone
-	if not f_down and recording:
-		recording = false
-		_finish_recording()
+
+
 
 
 func _start_recording() -> void:
@@ -138,8 +149,8 @@ func _process_clone(delta: float) -> void:
 			jump_pressed = frame["jump"]
 
 		velocity.x = dir * speed
-		if jump_pressed and is_on_floor():
-			velocity.y = jump_velocity
+		#if jump_pressed and is_on_floor():
+			#velocity.y = jump_force 
 
 		if not is_on_floor():
 			velocity.y += gravity * delta
@@ -151,3 +162,5 @@ func _process_clone(delta: float) -> void:
 			velocity.y += gravity * delta
 
 	move_and_slide()
+	
+	
