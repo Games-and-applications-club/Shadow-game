@@ -1,9 +1,24 @@
 extends CharacterBody2D
 
+@onready var animation = $AnimatedSprite2D
+
 # Movement tuning
+<<<<<<< Updated upstream
 @export var speed: float = 200.0
 @export var jump_velocity: float = -400.0
 @export var gravity: float = 900.0
+=======
+@export var speed := 200.0
+@export var gravity := 900.0
+@export var min_jump_force := -100.0  # Short tap
+@export var max_jump_force := -300.0  # Full hold
+@export var max_jump_hold := 0.3      # Seconds to reach full jump
+
+var jump_pressed := false
+var jump_hold_time := 0.0
+var jump_active := false  # true only during a valid jump
+var on_ladder := false
+>>>>>>> Stashed changes
 
 # Clone / recording settings
 @export var clone_scene: PackedScene = preload("res://Scenes/Main_Character.tscn")
@@ -32,6 +47,7 @@ func _physics_process(delta: float) -> void:
 		_process_clone(delta)
 		return
 
+<<<<<<< Updated upstream
 	# --- Player logic (records input while active) ---
 	var dir := Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 
@@ -67,28 +83,61 @@ func _physics_process(delta: float) -> void:
 		_finish_recording()
 
 
+=======
+#shadow
+var buffer_max_time := 3.0
+
+var buffer_max_frames := int(buffer_max_time / Engine.get_physics_ticks_per_second())
+
+	
+func _physics_process(delta):
+	Global.record_input()
+
+	# Horizontal movement — constant speed, no sliding
+	velocity.x = 0.0
+	if Input.is_action_pressed("move_left"):
+		velocity.x = -speed
+	elif Input.is_action_pressed("move_right"):
+		velocity.x = speed
+	# Gravity
+	if not on_ladder:
+		velocity.y += gravity * delta
+
+	# Jump logic
+	if Input.is_action_just_pressed("jump") and is_on_floor and !on_ladder:
+		jump_pressed = true
+		jump_active = true
+		jump_hold_time = 0.0
+		
+	# Continue jump while held and within time
+	if jump_active and Input.is_action_pressed("jump"):
+		jump_hold_time += delta
+		var t: float = clamp(jump_hold_time / max_jump_hold, 0.0, 1.0)
+		velocity.y = lerp(min_jump_force, max_jump_force, t)
+
+	# End jump if released or max time reached
+	if Input.is_action_just_released("jump") or jump_hold_time >= max_jump_hold:
+		jump_active = false
+
+	move_and_slide()
+
+>>>>>>> Stashed changes
 func _start_recording() -> void:
 	recording = true
 	record_timer = 0.0
 	recorded_frames.clear()
 
-	print_debug("[testcharacter] started recording")
-
-
 func _finish_recording() -> void:
 	# After recording ends, start the clone replay process: make it visible and give it the recorded frames
 	if recorded_frames.size() == 0:
-		print_debug("[testcharacter] finished recording but no frames captured")
 		return
 
 	# instantiate clone now (spawn on release)
 	if not clone_scene:
-		print_debug("[testcharacter] no clone_scene assigned")
 		return
 
 	clone_instance = clone_scene.instantiate()
 	if not clone_instance:
-		print_debug("[testcharacter] failed to instantiate clone_scene")
 		return
 
 	# mark it as a clone so it won't start recording
@@ -99,7 +148,6 @@ func _finish_recording() -> void:
 	clone_instance.global_position = global_position + Vector2(16, 0)
 	clone_instance.visible = true
 	get_parent().add_child(clone_instance)
-	print_debug("[testcharacter] spawned clone at release; frames=%d duration=%.2f" % [recorded_frames.size(), record_timer])
 
 	# start the clone replay by calling its start_replay method if available
 	if clone_instance.has_method("start_replay"):
