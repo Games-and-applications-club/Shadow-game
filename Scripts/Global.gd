@@ -23,3 +23,8 @@ func record_input():
 	# Keep buffer capped at max length (sliding window)
 	if input_buffer.size() > buffer_max_frames:
 		input_buffer.pop_front()
+
+	# Debug prints
+	print("Global.record_input called")
+	print("Snapshot:", input_snapshot)
+	print("Buffer size:", input_buffer.size())

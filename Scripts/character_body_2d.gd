@@ -1,13 +1,6 @@
 extends CharacterBody2D
 
-@onready var animation = $AnimatedSprite2D
-
 # Movement tuning
-<<<<<<< Updated upstream
-@export var speed: float = 200.0
-@export var jump_velocity: float = -400.0
-@export var gravity: float = 900.0
-=======
 @export var speed := 200.0
 @export var gravity := 900.0
 @export var min_jump_force := -100.0  # Short tap
@@ -17,8 +10,6 @@ extends CharacterBody2D
 var jump_pressed := false
 var jump_hold_time := 0.0
 var jump_active := false  # true only during a valid jump
-var on_ladder := false
->>>>>>> Stashed changes
 
 # Clone / recording settings
 @export var clone_scene: PackedScene = preload("res://Scenes/Main_Character.tscn")
@@ -37,61 +28,22 @@ var replay_data: Array = []
 var replay_index: int = 0
 var is_replaying: bool = false
 
-func _ready() -> void:
-	# If this node is a clone that shouldn't start its own recording/spawn, make sure flags are clear
-	if is_clone:
-		recording = false
-
-func _physics_process(delta: float) -> void:
-	if is_clone:
-		_process_clone(delta)
-		return
-
-<<<<<<< Updated upstream
-	# --- Player logic (records input while active) ---
-	var dir := Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-
-	velocity.x = dir * speed
-
-	var jump_pressed := Input.is_action_just_pressed("ui_up")
-	if jump_pressed and is_on_floor():
-		velocity.y = jump_velocity
-
-	if not is_on_floor():
-		velocity.y += gravity * delta
-
-	move_and_slide()
-
-	# Recording is controlled by holding the F key
-	# Use the project input action 'record' (mapped to F) to control recording
-	var f_down := Input.is_action_pressed("record")
-	if f_down and not recording:
-		_start_recording()
-
-	if recording:
-		# capture this physics frame
-		recorded_frames.append({"dir": dir, "jump": jump_pressed})
-		record_timer += delta
-		# stop recording if we reached max_record_time
-		if record_timer >= max_record_time:
-			recording = false
-			_finish_recording()
-
-	# when F is released, finish recording and spawn the clone
-	if not f_down and recording:
-		recording = false
-		_finish_recording()
+#variables for PointClone
 
 
-=======
 #shadow
 var buffer_max_time := 3.0
-
 var buffer_max_frames := int(buffer_max_time / Engine.get_physics_ticks_per_second())
 
 	
 func _physics_process(delta):
+	print("tick Main")
+
 	Global.record_input()
+
+	print("input_buffer reference:", Global.input_buffer)
+	print("Buffer size:", Global.input_buffer.size())
+	print("Global buffer size:", Global.input_buffer.size())
 
 	# Horizontal movement — constant speed, no sliding
 	velocity.x = 0.0
@@ -100,11 +52,10 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("move_right"):
 		velocity.x = speed
 	# Gravity
-	if not on_ladder:
-		velocity.y += gravity * delta
+	velocity.y += gravity * delta
 
 	# Jump logic
-	if Input.is_action_just_pressed("jump") and is_on_floor and !on_ladder:
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		jump_pressed = true
 		jump_active = true
 		jump_hold_time = 0.0
@@ -121,23 +72,34 @@ func _physics_process(delta):
 
 	move_and_slide()
 
->>>>>>> Stashed changes
+
+
+
+
+
+
 func _start_recording() -> void:
 	recording = true
 	record_timer = 0.0
 	recorded_frames.clear()
 
+	print_debug("[testcharacter] started recording")
+
+
 func _finish_recording() -> void:
 	# After recording ends, start the clone replay process: make it visible and give it the recorded frames
 	if recorded_frames.size() == 0:
+		print_debug("[testcharacter] finished recording but no frames captured")
 		return
 
 	# instantiate clone now (spawn on release)
 	if not clone_scene:
+		print_debug("[testcharacter] no clone_scene assigned")
 		return
 
 	clone_instance = clone_scene.instantiate()
 	if not clone_instance:
+		print_debug("[testcharacter] failed to instantiate clone_scene")
 		return
 
 	# mark it as a clone so it won't start recording
@@ -148,6 +110,7 @@ func _finish_recording() -> void:
 	clone_instance.global_position = global_position + Vector2(16, 0)
 	clone_instance.visible = true
 	get_parent().add_child(clone_instance)
+	print_debug("[testcharacter] spawned clone at release; frames=%d duration=%.2f" % [recorded_frames.size(), record_timer])
 
 	# start the clone replay by calling its start_replay method if available
 	if clone_instance.has_method("start_replay"):
@@ -186,8 +149,8 @@ func _process_clone(delta: float) -> void:
 			jump_pressed = frame["jump"]
 
 		velocity.x = dir * speed
-		if jump_pressed and is_on_floor():
-			velocity.y = jump_velocity
+		#if jump_pressed and is_on_floor():
+			#velocity.y = jump_force 
 
 		if not is_on_floor():
 			velocity.y += gravity * delta
@@ -199,3 +162,5 @@ func _process_clone(delta: float) -> void:
 			velocity.y += gravity * delta
 
 	move_and_slide()
+	
+	
