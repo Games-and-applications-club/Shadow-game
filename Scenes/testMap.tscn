@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=4 uid="uid://cfc23yi78atxg"]
+[gd_scene load_steps=14 format=4 uid="uid://cfc23yi78atxg"]
 
 [ext_resource type="Texture2D" uid="uid://dfkyaojv0wdi" path="res://Assets/testTileset.png" id="1_enll3"]
 [ext_resource type="PackedScene" uid="uid://brctofar585na" path="res://Scenes/rock.tscn" id="2_1kuu2"]
 [ext_resource type="PackedScene" uid="uid://7bahjjk53nft" path="res://Scenes/Shadow_Character.tscn" id="3_upetf"]
 [ext_resource type="PackedScene" uid="uid://d31r43aw4ra4l" path="res://Scenes/Main_Character.tscn" id="4_dj4tb"]
 [ext_resource type="PackedScene" uid="uid://cmwxxcxev2rva" path="res://Scenes/lever.tscn" id="4_upetf"]
+[ext_resource type="PackedScene" uid="uid://xjkeekv552kr" path="res://Scenes/lightbulb.tscn" id="6_mmp2g"]
+[ext_resource type="PackedScene" uid="uid://dis51w61tfd60" path="res://Scenes/dark_area.tscn" id="7_73krw"]
+[ext_resource type="PackedScene" uid="uid://dipvumm27qjhr" path="res://Scenes/carton.tscn" id="8_rp4r7"]
+[ext_resource type="PackedScene" uid="uid://bv4huyauule0o" path="res://Scenes/mine_door.tscn" id="9_2xxgv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_enll3"]
 texture = ExtResource("1_enll3")
@@ -274,5 +278,22 @@ position = Vector2(76, 568)
 [node name="Rock" parent="." instance=ExtResource("2_1kuu2")]
 position = Vector2(244, 482)
 
-[node name="Lever" parent="." instance=ExtResource("4_upetf")]
-position = Vector2(589, 607)
+[node name="Lever" parent="." node_paths=PackedStringArray("mine_door") instance=ExtResource("4_upetf")]
+position = Vector2(589, 609)
+mine_door = NodePath("../MineDoor")
+
+[node name="Lightbulb" parent="." instance=ExtResource("6_mmp2g")]
+position = Vector2(189, 546)
+scale = Vector2(3, 3)
+
+[node name="DarkArea" parent="." instance=ExtResource("7_73krw")]
+position = Vector2(372, 610)
+scale = Vector2(3, 3)
+
+[node name="Carton" parent="." instance=ExtResource("8_rp4r7")]
+position = Vector2(694, 610)
+scale = Vector2(0.2, 0.2)
+
+[node name="MineDoor" parent="." node_paths=PackedStringArray("lever") instance=ExtResource("9_2xxgv")]
+position = Vector2(561, 514)
+lever = NodePath("../Lever")

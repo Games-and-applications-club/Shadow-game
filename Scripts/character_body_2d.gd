@@ -37,13 +37,8 @@ var buffer_max_frames := int(buffer_max_time / Engine.get_physics_ticks_per_seco
 
 	
 func _physics_process(delta):
-	print("tick Main")
 
 	Global.record_input()
-
-	print("input_buffer reference:", Global.input_buffer)
-	print("Buffer size:", Global.input_buffer.size())
-	print("Global buffer size:", Global.input_buffer.size())
 
 	# Horizontal movement — constant speed, no sliding
 	velocity.x = 0.0

@@ -9,6 +9,9 @@ extends CharacterBody2D
 var jump_hold_time := 0.0
 var jump_active := false
 
+func _ready() -> void:
+	print("Shadow collision_mask:", self.collision_mask)
+
 func _physics_process(delta):
 	# Always apply gravity
 	velocity.y += gravity * delta

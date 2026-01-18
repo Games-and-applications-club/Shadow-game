@@ -17,7 +17,7 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_et8ae"]
 
-[node name="Main_Character2" type="CharacterBody2D"]
+[node name="Main_Character" type="CharacterBody2D"]
 scale = Vector2(0.23320158, 0.23976608)
 script = ExtResource("1_mnji8")
 
@@ -35,6 +35,16 @@ offset_right = 188.67798
 offset_bottom = -367.02435
 
 [node name="Camera2D" type="Camera2D" parent="PauseMenu"]
-position = Vector2(-1.9073487e-07, -0.417073)
+position = Vector2(-26.953995, 52.432068)
 scale = Vector2(0.1, 0.1)
+zoom = Vector2(4, 4)
 position_smoothing_enabled = true
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -124.355896
+offset_top = -145.97552
+offset_right = 127.644104
+offset_bottom = -103.975525
+theme_override_font_sizes/font_size = 30
+text = "Click E to interact"

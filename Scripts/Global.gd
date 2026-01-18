@@ -25,6 +25,3 @@ func record_input():
 		input_buffer.pop_front()
 
 	# Debug prints
-	print("Global.record_input called")
-	print("Snapshot:", input_snapshot)
-	print("Buffer size:", input_buffer.size())
