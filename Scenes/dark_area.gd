@@ -1,11 +1,9 @@
 extends Area2D
 
 @onready var shadow = $"../Shadow_Character"
-
-var collision = null
+@onready var collision = shadow.get_node("CollisionShape2D")
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Main_Character":
+	if body is CharacterBody2D:
 		shadow.visible = false
-		collision = body.get_node("CollisionShape2D")
 		collision.disabled = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://7bahjjk53nft"]
+[gd_scene load_steps=7 format=3 uid="uid://7bahjjk53nft"]
 
 [ext_resource type="Script" uid="uid://drr5yybcjkdu0" path="res://Scripts/shadow_character.gd" id="1_7cqvm"]
 [ext_resource type="Texture2D" uid="uid://c2jbi0lhu1oaw" path="res://Assets/Ninja Frog/Double Jump (32x32).png" id="2_7cqvm"]
@@ -23,7 +23,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_et8ae"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cqvm"]
+size = Vector2(90.05084, 83.41465)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iswtg"]
+size = Vector2(90.05084, 79.243904)
 
 [node name="Shadow_Character" type="CharacterBody2D"]
 scale = Vector2(0.23320158, 0.23976608)
@@ -33,11 +37,21 @@ script = ExtResource("1_7cqvm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(2.1440659, 2.9527588)
+position = Vector2(-2.3841858e-07, -2.3841858e-07)
 scale = Vector2(3.8861232, 3.4648428)
 sprite_frames = SubResource("SpriteFrames_0bwfo")
 animation = &"new_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(6.317972, 5.240506)
-shape = SubResource("RectangleShape2D_et8ae")
+position = Vector2(2.1440678, -8.341464)
+scale = Vector2(1, 0.99999976)
+shape = SubResource("RectangleShape2D_7cqvm")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.1440678, -6.2560935)
+scale = Vector2(1, 0.9999999)
+shape = SubResource("RectangleShape2D_iswtg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

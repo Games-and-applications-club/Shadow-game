@@ -3,7 +3,7 @@ extends RigidBody2D
 var touched = 0
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "Main_Character":
+	if body.name == "Main_Character" or body.name == "Shadow_Character":
 		touched += 1
 		break_rock()
 		
