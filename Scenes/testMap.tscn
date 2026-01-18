@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=4 uid="uid://cfc23yi78atxg"]
+[gd_scene load_steps=12 format=4 uid="uid://cfc23yi78atxg"]
 
 [ext_resource type="Texture2D" uid="uid://dfkyaojv0wdi" path="res://Assets/testTileset.png" id="1_enll3"]
 [ext_resource type="PackedScene" uid="uid://brctofar585na" path="res://Scenes/rock.tscn" id="2_1kuu2"]
 [ext_resource type="PackedScene" uid="uid://7bahjjk53nft" path="res://Scenes/Shadow_Character.tscn" id="3_upetf"]
 [ext_resource type="PackedScene" uid="uid://d31r43aw4ra4l" path="res://Scenes/Main_Character.tscn" id="4_dj4tb"]
 [ext_resource type="PackedScene" uid="uid://cmwxxcxev2rva" path="res://Scenes/lever.tscn" id="4_upetf"]
+[ext_resource type="PackedScene" uid="uid://cfbijqua8l0ww" path="res://Scenes/lightbulb.tscn" id="6_mmp2g"]
+[ext_resource type="PackedScene" uid="uid://16tvnlkru6ib" path="res://Scenes/dark_area.tscn" id="7_73krw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_enll3"]
 texture = ExtResource("1_enll3")
@@ -276,3 +278,11 @@ position = Vector2(244, 482)
 
 [node name="Lever" parent="." instance=ExtResource("4_upetf")]
 position = Vector2(589, 607)
+
+[node name="Lightbulb" parent="." instance=ExtResource("6_mmp2g")]
+position = Vector2(189, 546)
+scale = Vector2(3, 3)
+
+[node name="DarkArea" parent="." instance=ExtResource("7_73krw")]
+position = Vector2(354, 611)
+scale = Vector2(3, 3)
