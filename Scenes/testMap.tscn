@@ -284,5 +284,5 @@ position = Vector2(189, 546)
 scale = Vector2(3, 3)
 
 [node name="DarkArea" parent="." instance=ExtResource("7_73krw")]
-position = Vector2(354, 611)
+position = Vector2(372, 610)
 scale = Vector2(3, 3)
