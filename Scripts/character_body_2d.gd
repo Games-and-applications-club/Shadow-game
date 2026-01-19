@@ -28,8 +28,8 @@ var replay_data: Array = []
 var replay_index: int = 0
 var is_replaying: bool = false
 
-#variables for PointClone
-
+#Animation
+@onready var anim = $AnimatedSprite2D
 
 #shadow
 var buffer_max_time := 3.0
@@ -39,13 +39,24 @@ var buffer_max_frames := int(buffer_max_time / Engine.get_physics_ticks_per_seco
 func _physics_process(delta):
 
 	Global.record_input()
-
+	var input_vector = Vector2.ZERO
+	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	# Flip sprite based on direction
+	if input_vector.x < 0:
+		anim.flip_h = true
+	elif input_vector.x > 0:
+		anim.flip_h = false
+	#idle Checker
+	if input_vector == Vector2.ZERO:
+		anim.play("Idle")
 	# Horizontal movement — constant speed, no sliding
 	velocity.x = 0.0
 	if Input.is_action_pressed("move_left"):
 		velocity.x = -speed
+		anim.play("Walking")
 	elif Input.is_action_pressed("move_right"):
 		velocity.x = speed
+		anim.play("Walking")
 	# Gravity
 	velocity.y += gravity * delta
 
