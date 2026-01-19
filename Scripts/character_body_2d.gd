@@ -66,6 +66,12 @@ func _physics_process(delta):
 		jump_active = false
 
 	move_and_slide()
+	
+
+	for i in get_slide_collision_count():
+		var col = get_slide_collision(i)
+		if col.get_collider() is RigidBody2D:
+			col.get_collider().apply_central_impulse(-col.get_normal() * 10)
 
 
 
