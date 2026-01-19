@@ -291,8 +291,9 @@ position = Vector2(372, 610)
 scale = Vector2(3, 3)
 
 [node name="Carton" parent="." instance=ExtResource("8_rp4r7")]
-position = Vector2(694, 610)
-scale = Vector2(0.2, 0.2)
+position = Vector2(798, 620)
+linear_damp = 3.0
+script = null
 
 [node name="MineDoor" parent="." node_paths=PackedStringArray("lever") instance=ExtResource("9_2xxgv")]
 position = Vector2(561, 514)
