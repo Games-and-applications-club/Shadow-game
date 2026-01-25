@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=4 uid="uid://cfc23yi78atxg"]
+[gd_scene load_steps=17 format=4 uid="uid://cfc23yi78atxg"]
 
+[ext_resource type="Script" uid="uid://dyy1ksv6y5xv" path="res://Scenes/test_map.gd" id="1_88i40"]
 [ext_resource type="Texture2D" uid="uid://dfkyaojv0wdi" path="res://Assets/testTileset.png" id="1_enll3"]
 [ext_resource type="PackedScene" uid="uid://brctofar585na" path="res://Scenes/rock.tscn" id="2_1kuu2"]
 [ext_resource type="PackedScene" uid="uid://7bahjjk53nft" path="res://Scenes/Shadow_Character.tscn" id="3_upetf"]
@@ -9,7 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dis51w61tfd60" path="res://Scenes/dark_area.tscn" id="7_73krw"]
 [ext_resource type="PackedScene" uid="uid://dipvumm27qjhr" path="res://Scenes/carton.tscn" id="8_rp4r7"]
 [ext_resource type="PackedScene" uid="uid://bv4huyauule0o" path="res://Scenes/mine_door.tscn" id="9_2xxgv"]
-[ext_resource type="PackedScene" uid="uid://obahou78e0ix" path="res://Scenes/retry button.tscn" id="10_1gq8a"]
+[ext_resource type="PackedScene" uid="uid://c30o6jchmbqad" path="res://retryLayer.tscn" id="10_1gq8a"]
+[ext_resource type="PackedScene" uid="uid://cqhpr2qywg5gs" path="res://Scenes/gem.tscn" id="12_cuvvw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_enll3"]
 texture = ExtResource("1_enll3")
@@ -253,6 +255,7 @@ physics_layer_0/collision_mask = 15
 sources/0 = SubResource("TileSetAtlasSource_1kuu2")
 
 [node name="TestMap" type="Node2D"]
+script = ExtResource("1_88i40")
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2
@@ -295,10 +298,11 @@ scale = Vector2(3, 3)
 position = Vector2(810, 604)
 mass = 1.0
 
+[node name="Gem" parent="." instance=ExtResource("12_cuvvw")]
+position = Vector2(1018, 623)
+
 [node name="MineDoor" parent="." node_paths=PackedStringArray("lever") instance=ExtResource("9_2xxgv")]
 position = Vector2(561, 514)
 lever = NodePath("../Lever")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="RetryButton" parent="CanvasLayer" instance=ExtResource("10_1gq8a")]
+[node name="RetryLayer" parent="." instance=ExtResource("10_1gq8a")]
