@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=17 format=4 uid="uid://cfc23yi78atxg"]
+[gd_scene load_steps=15 format=4 uid="uid://cfc23yi78atxg"]
 
 [ext_resource type="Script" uid="uid://dyy1ksv6y5xv" path="res://Scenes/test_map.gd" id="1_88i40"]
 [ext_resource type="Texture2D" uid="uid://dfkyaojv0wdi" path="res://Assets/testTileset.png" id="1_enll3"]
@@ -12,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bv4huyauule0o" path="res://Scenes/mine_door.tscn" id="9_2xxgv"]
 [ext_resource type="PackedScene" uid="uid://c30o6jchmbqad" path="res://retryLayer.tscn" id="10_1gq8a"]
 [ext_resource type="PackedScene" uid="uid://cqhpr2qywg5gs" path="res://Scenes/gem.tscn" id="12_cuvvw"]
+[ext_resource type="PackedScene" uid="uid://so5cmct7d2t" path="res://Scenes/see-saw.tscn" id="10_1gq8a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_enll3"]
 texture = ExtResource("1_enll3")
@@ -306,3 +309,5 @@ position = Vector2(561, 514)
 lever = NodePath("../Lever")
 
 [node name="RetryLayer" parent="." instance=ExtResource("10_1gq8a")]
+[node name="SeeSaw" parent="." instance=ExtResource("10_1gq8a")]
+position = Vector2(998, 625)
