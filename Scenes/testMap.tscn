@@ -271,7 +271,7 @@ tile_map_data = PackedByteArray("AAAAACgAAAAIAAAAAAABACgAAAAIAAAAAAACACgAAAAIAAA
 tile_set = SubResource("TileSet_c0d6t")
 
 [node name="Ladder" parent="." instance=ExtResource("2_1gq8a")]
-position = Vector2(1010, 609)
+position = Vector2(703, 607)
 scale = Vector2(0.53532434, 0.46713647)
 
 [node name="Main_Character" parent="." instance=ExtResource("4_dj4tb")]
