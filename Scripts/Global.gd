@@ -2,7 +2,6 @@ extends Node
 
 # Shared input buffer for shadow replay
 var input_buffer: Array = []
-
 # How long the shadow delay should be (in seconds)
 var buffer_max_time := 1.0
 
