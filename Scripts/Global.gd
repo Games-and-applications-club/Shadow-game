@@ -1,5 +1,8 @@
 extends Node
 
+var day: int = 1
+
+var movable: bool = true
 # Shared input buffer for shadow replay
 var input_buffer: Array = []
 # How long the shadow delay should be (in seconds)

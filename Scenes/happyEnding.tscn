@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddauc7tyunioc"]
+[gd_scene load_steps=2 format=3 uid="uid://c3dlmhid5ak85"]
 
-[ext_resource type="Script" uid="uid://u1gcn6py7hbx" path="res://Scenes/happy_ending.gd" id="1_es8og"]
+[ext_resource type="Script" path="res://Scenes/happy_ending.gd" id="1_es8og"]
 
 [node name="HappyEnding" type="Control"]
 layout_mode = 3
@@ -12,6 +12,14 @@ grow_vertical = 2
 script = ExtResource("1_es8og")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
@@ -27,14 +35,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 70
 text = "Happy Ending GG"
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
 
 [node name="Button" type="Button" parent="CanvasLayer"]
 anchors_preset = -1

@@ -3,8 +3,9 @@ extends Control
 @onready var color_rect: ColorRect= $CanvasLayer/ColorRect
 
 func _ready() -> void:
-	color_rect.color.a = 0.0
-	color_rect.z_index = 0
+	color_rect.color.a = 1.0
+	color_rect.z_index = 6
+	await fade(0.0, 1.5).finished
 
 func fade(target_alpha: float, duration: float = 1.0):
 	var tween = create_tween()
