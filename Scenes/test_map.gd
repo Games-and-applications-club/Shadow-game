@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var layer = $RetryLayer
+@onready var layer = $CanvasLayer
 @onready var button = layer.button
 
 func _ready() -> void:

@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bv4huyauule0o" path="res://Scenes/mine_door.tscn" id="15_54sio"]
 [ext_resource type="PackedScene" uid="uid://dis51w61tfd60" path="res://Scenes/dark_area.tscn" id="15_gxjwj"]
 [ext_resource type="PackedScene" uid="uid://cqhpr2qywg5gs" path="res://Scenes/gem.tscn" id="16_2mwsi"]
-[ext_resource type="PackedScene" uid="uid://binjcxv068ktp" path="res://retryLayer.tscn" id="19_8o1i5"]
+[ext_resource type="PackedScene" uid="uid://eiy3hm1gq4bg" path="res://Scenes/retry_layer.tscn" id="19_b6ymx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5k54k"]
 texture = ExtResource("1_48rmr")
@@ -247,5 +247,4 @@ scale = Vector2(0.05, 0.05)
 tile_map_data = PackedByteArray("AAAdAbACAAAAAAIAAAAeAbcCAAAAAAIAADC1AXYCAAAAAAIAAAC2AX0CAAAAAAIAADA/Aj0CAAAAAAIAAABAAkQCAAAAAAIAADDUAgECAAAAAAIAAADVAggCAAAAAAIAADBzA8EBAAAAAAIAAAB0A8gBAAAAAAIAADA=")
 tile_set = SubResource("TileSet_xv4fl")
 
-[node name="RetryLayer" parent="." instance=ExtResource("19_8o1i5")]
-visible = false
+[node name="CanvasLayer" parent="." instance=ExtResource("19_b6ymx")]

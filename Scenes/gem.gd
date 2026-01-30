@@ -2,7 +2,7 @@ extends Area2D
 
 @export var happyEndingDate: int = 20
 
-@onready var layer = $"../RetryLayer"
+@onready var layer = $"../CanvasLayer"
 @onready var button = layer.button
 
 func _on_body_entered(body: Node2D) -> void:
