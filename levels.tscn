@@ -1,0 +1,250 @@
+[gd_scene load_steps=24 format=4 uid="uid://ijmlyuo6rq53"]
+
+[ext_resource type="Texture2D" uid="uid://d7854ofpmyks" path="res://Assets/Tile assets/tile 2.png" id="1_48rmr"]
+[ext_resource type="Texture2D" uid="uid://dj0kvodk6bich" path="res://Assets/Tile assets/dripstone1.png" id="1_283no"]
+[ext_resource type="PackedScene" uid="uid://d31r43aw4ra4l" path="res://Scenes/Main_Character.tscn" id="2_5k54k"]
+[ext_resource type="Texture2D" uid="uid://do0r6p1oy2md8" path="res://Assets/Tile assets/crystal001.png" id="2_8ecpo"]
+[ext_resource type="Texture2D" uid="uid://bra0csasmgch2" path="res://Assets/Tile assets/bricktile.png" id="2_hbfth"]
+[ext_resource type="Texture2D" uid="uid://dhlpmgc0j1gk7" path="res://Assets/Tile assets/mushroom1.png" id="3_kpxkt"]
+[ext_resource type="Texture2D" uid="uid://dtb6o00mpv6yq" path="res://Assets/Tile assets/rock3.png" id="4_gotub"]
+[ext_resource type="Texture2D" uid="uid://bc6g15bkkpmnw" path="res://Assets/Tile assets/rock4.png" id="5_d8u8u"]
+[ext_resource type="Texture2D" uid="uid://uyyfqrfsvlej" path="res://Assets/Tile assets/rock5.png" id="6_gxjwj"]
+[ext_resource type="Texture2D" uid="uid://2qw744vgp1vo" path="res://Assets/Tile assets/rock6.png" id="7_f8e78"]
+[ext_resource type="PackedScene" uid="uid://7bahjjk53nft" path="res://Scenes/Shadow_Character.tscn" id="11_8ecpo"]
+[ext_resource type="PackedScene" uid="uid://cmwxxcxev2rva" path="res://Scenes/lever.tscn" id="11_gotub"]
+[ext_resource type="PackedScene" uid="uid://brctofar585na" path="res://Scenes/rock.tscn" id="12_kpxkt"]
+[ext_resource type="PackedScene" uid="uid://dipvumm27qjhr" path="res://Scenes/carton.tscn" id="14_b6ymx"]
+[ext_resource type="PackedScene" uid="uid://xjkeekv552kr" path="res://Scenes/lightbulb.tscn" id="14_d8u8u"]
+[ext_resource type="PackedScene" uid="uid://bv4huyauule0o" path="res://Scenes/mine_door.tscn" id="15_54sio"]
+[ext_resource type="PackedScene" uid="uid://dis51w61tfd60" path="res://Scenes/dark_area.tscn" id="15_gxjwj"]
+[ext_resource type="PackedScene" uid="uid://cqhpr2qywg5gs" path="res://Scenes/gem.tscn" id="16_2mwsi"]
+[ext_resource type="PackedScene" uid="uid://eiy3hm1gq4bg" path="res://Scenes/retry_layer.tscn" id="19_b6ymx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5k54k"]
+texture = ExtResource("1_48rmr")
+margins = Vector2i(52, 122)
+texture_region_size = Vector2i(175, 200)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.045456, -48.18182, 87.51964, -47.624714, 86.59091, 98.181816, -87.954544, 98.18181, -87.56578, -47.578564, -86.50438, -47.486267)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.045456, -48.18182, 87.51964, -47.624714, 86.59091, 98.181816, -87.954544, 98.18181, -87.56578, -47.578564, -86.50438, -47.486267)
+
+[sub_resource type="TileSet" id="TileSet_hbfth"]
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+sources/2 = SubResource("TileSetAtlasSource_5k54k")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02xe8"]
+texture = ExtResource("2_hbfth")
+texture_region_size = Vector2i(1000, 250)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0/physics_layer_0/polygon_1/points = PackedVector2Array(-462.91833, -105.56535, -462.91833, 128.39026, 481.46356, 131.24338, 478.61044, -105.56535)
+
+[sub_resource type="TileSet" id="TileSet_xv4fl"]
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_02xe8")
+
+[node name="Levels" type="Node2D"]
+
+[node name="rocks" type="Node2D" parent="."]
+
+[node name="Dripstone1" type="Sprite2D" parent="rocks"]
+position = Vector2(386, 179)
+scale = Vector2(0.5, 0.439)
+texture = ExtResource("1_283no")
+
+[node name="Dripstone2" type="Sprite2D" parent="rocks"]
+position = Vector2(2335, 75)
+scale = Vector2(0.187, 0.164)
+texture = ExtResource("1_283no")
+
+[node name="Dripstone3" type="Sprite2D" parent="rocks"]
+position = Vector2(1840, 129)
+scale = Vector2(0.3, 0.263)
+texture = ExtResource("1_283no")
+
+[node name="Dripstone4" type="Sprite2D" parent="rocks"]
+position = Vector2(863.0001, 73)
+scale = Vector2(0.187, 0.164)
+texture = ExtResource("1_283no")
+
+[node name="Dripstone5" type="Sprite2D" parent="rocks"]
+position = Vector2(1339.0001, 76)
+scale = Vector2(0.187, 0.164)
+texture = ExtResource("1_283no")
+
+[node name="Crystal001" type="Sprite2D" parent="rocks"]
+position = Vector2(1196, 349)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_8ecpo")
+
+[node name="Crystal002" type="Sprite2D" parent="rocks"]
+position = Vector2(2468, 539)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_8ecpo")
+
+[node name="Crystal003" type="Sprite2D" parent="rocks"]
+position = Vector2(2059, 409)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_8ecpo")
+
+[node name="Crystal004" type="Sprite2D" parent="rocks"]
+position = Vector2(442.00006, 480)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_8ecpo")
+
+[node name="Mushroom1" type="Sprite2D" parent="rocks"]
+position = Vector2(172, 593)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("3_kpxkt")
+
+[node name="Mushroom2" type="Sprite2D" parent="rocks"]
+position = Vector2(445, 446)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("3_kpxkt")
+
+[node name="Mushroom3" type="Sprite2D" parent="rocks"]
+position = Vector2(2130, 592)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("3_kpxkt")
+
+[node name="Mushroom4" type="Sprite2D" parent="rocks"]
+position = Vector2(1415, 592)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("3_kpxkt")
+
+[node name="Mushroom5" type="Sprite2D" parent="rocks"]
+position = Vector2(1016, 592)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("3_kpxkt")
+
+[node name="Mushroom6" type="Sprite2D" parent="rocks"]
+position = Vector2(643, 510)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_kpxkt")
+
+[node name="Rock3" type="Sprite2D" parent="rocks"]
+position = Vector2(2329, 561.99994)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_gotub")
+
+[node name="Rock4" type="Sprite2D" parent="rocks"]
+position = Vector2(528, 573)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_d8u8u")
+
+[node name="Rock14" type="Sprite2D" parent="rocks"]
+position = Vector2(1966.9999, 575)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_d8u8u")
+
+[node name="Rock15" type="Sprite2D" parent="rocks"]
+position = Vector2(1469, 552)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_d8u8u")
+
+[node name="Rock16" type="Sprite2D" parent="rocks"]
+position = Vector2(867, 578)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_d8u8u")
+
+[node name="Rock5" type="Sprite2D" parent="rocks"]
+position = Vector2(934, 554)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_gxjwj")
+
+[node name="Rock10" type="Sprite2D" parent="rocks"]
+position = Vector2(918, 591)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_gxjwj")
+
+[node name="Rock11" type="Sprite2D" parent="rocks"]
+position = Vector2(1152, 565)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_gxjwj")
+
+[node name="Rock12" type="Sprite2D" parent="rocks"]
+position = Vector2(1655, 498)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_gxjwj")
+
+[node name="Rock13" type="Sprite2D" parent="rocks"]
+position = Vector2(2246, 525)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("6_gxjwj")
+
+[node name="Rock6" type="Sprite2D" parent="rocks"]
+position = Vector2(838, 583)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_f8e78")
+
+[node name="Rock7" type="Sprite2D" parent="rocks"]
+position = Vector2(2556, 585)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_f8e78")
+
+[node name="Rock8" type="Sprite2D" parent="rocks"]
+position = Vector2(1829, 585)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_f8e78")
+
+[node name="Rock9" type="Sprite2D" parent="rocks"]
+position = Vector2(1345, 582)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_f8e78")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Main_Character" parent="." instance=ExtResource("2_5k54k")]
+position = Vector2(54, 587)
+
+[node name="Shadow_Character" parent="." instance=ExtResource("11_8ecpo")]
+position = Vector2(53.999996, 587)
+
+[node name="Rock" parent="." instance=ExtResource("12_kpxkt")]
+position = Vector2(154, 541)
+
+[node name="Lever" parent="." node_paths=PackedStringArray("mine_door") instance=ExtResource("11_gotub")]
+position = Vector2(464, 584)
+mine_door = NodePath("../MineDoor")
+
+[node name="Lightbulb" parent="." instance=ExtResource("14_d8u8u")]
+position = Vector2(227, 501)
+scale = Vector2(3, 3)
+
+[node name="DarkArea" parent="." instance=ExtResource("15_gxjwj")]
+position = Vector2(334, 570)
+scale = Vector2(3, 3)
+
+[node name="Carton" parent="." instance=ExtResource("14_b6ymx")]
+position = Vector2(577, 584)
+
+[node name="MineDoor" parent="." node_paths=PackedStringArray("lever") instance=ExtResource("15_54sio")]
+position = Vector2(460, 474)
+lever = NodePath("../Lever")
+
+[node name="Gem" parent="." instance=ExtResource("16_2mwsi")]
+position = Vector2(2680, 584)
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMap"]
+scale = Vector2(0.3, 0.3)
+tile_map_data = PackedByteArray("AAAFAIEAAgABAAAAAAAPAIEAAgACAAAAAAAQAIEAAgACAAAAAAAbAIEAAgABAAAAAAAmAIEAAgACAAAAAAAxAIEAAgABAAAAAAA8AIEAAgACAAAAAABHAIEAAgABAAAAAABSAIEAAgACAAAAAABdAIEAAgABAAAAAABoAIEAAgACAAAAAABzAIEAAgABAAAAAAB+AIEAAgACAAAAAACJAIEAAgABAAAAAACUAIEAAgACAAAAAACfAIEAAgABAAAAAACqAIEAAgACAAAAAAC1AIEAAgABAAAAAADAAIEAAgACAAAAAADLAIEAAgABAAAAAADWAIEAAgACAAAAAADhAIEAAgABAAAAAADsAIEAAgACAAAAAAD3AIEAAgABAAAAAAACAYEAAgACAAAAAAANAYEAAgABAAAAAAAYAYEAAgACAAAAAAAVAIEAAgACAAAAAAAgAIEAAgABAAAAAAArAIEAAgABAAAAAAA2AIEAAgABAAAAAABCAIEAAgABAAAAAABMAIEAAgABAAAAAABYAIEAAgABAAAAAABiAIEAAgABAAAAAABtAIEAAgABAAAAAAB4AIEAAgABAAAAAACDAIEAAgABAAAAAACOAIEAAgABAAAAAACaAIEAAgABAAAAAACkAIEAAgABAAAAAACvAIEAAgABAAAAAAC6AIEAAgABAAAAAADFAIEAAgABAAAAAADQAIEAAgABAAAAAADcAIEAAgABAAAAAADmAIEAAgABAAAAAADyAIEAAgABAAAAAAD8AIEAAgABAAAAAAAIAYEAAgABAAAAAAASAYEAAgABAAAAAAAjAYEAAgABAAAAAAAtAYEAAgACAAAAAAAuAYEAAgACAAAAAAAzAYEAAgACAAAAAAA5AYEAAgABAAAAAAA+AYEAAgABAAAAAABEAYEAAgACAAAAAABJAYEAAgABAAAAAABPAYEAAgABAAAAAABUAYEAAgABAAAAAABaAYEAAgACAAAAAABgAYEAAgABAAAAAABlAYEAAgABAAAAAABqAYEAAgABAAAAAABwAYEAAgACAAAAAAB2AYEAAgABAAAAAAB7AYEAAgABAAAAAACAAYEAAgABAAAAAACGAYEAAgACAAAAAACLAYEAAgABAAAAAACRAYEAAgABAAAAAACWAYEAAgABAAAAAACcAYEAAgACAAAAAAChAYEAAgABAAAAAACnAYEAAgABAAAAAACsAYEAAgABAAAAAACyAYEAAgACAAAAAAC4AYEAAgABAAAAAAC9AYEAAgABAAAAAADCAYEAAgABAAAAAADIAYEAAgACAAAAAADNAYEAAgABAAAAAADTAYEAAgABAAAAAADYAYEAAgABAAAAAADeAYEAAgACAAAAAADjAYEAAgABAAAAAADpAYEAAgABAAAAAADuAYEAAgABAAAAAAD0AYEAAgACAAAAAAD6AYEAAgABAAAAAAD/AYEAAgABAAAAAAAEAoEAAgABAAAAAAAKAoEAAgACAAAAAAAQAoEAAgABAAAAAAAVAoEAAgABAAAAAAAaAoEAAgABAAAAAAAgAoEAAgACAAAAAAAmAoEAAgABAAAAAAArAoEAAgABAAAAAAAwAoEAAgABAAAAAAA2AoEAAgACAAAAAAAfAYEAAgABAAAAAAA1AgUAAgABAAAAADArAgUAAgACAAAAADAqAgUAAgACAAAAADAlAgUAAgACAAAAADAfAgUAAgABAAAAADAaAgUAAgABAAAAADAUAgUAAgACAAAAADAPAgUAAgABAAAAADAJAgUAAgABAAAAADAEAgUAAgABAAAAADD+AQUAAgACAAAAADD4AQUAAgABAAAAADDzAQUAAgABAAAAADDuAQUAAgABAAAAADDoAQUAAgACAAAAADDiAQUAAgABAAAAADDdAQUAAgABAAAAADDYAQUAAgABAAAAADDSAQUAAgACAAAAADDNAQUAAgABAAAAADDHAQUAAgABAAAAADDCAQUAAgABAAAAADC8AQUAAgACAAAAADC3AQUAAgABAAAAADCxAQUAAgABAAAAADCsAQUAAgABAAAAADCmAQUAAgACAAAAADCgAQUAAgABAAAAADCbAQUAAgABAAAAADCWAQUAAgABAAAAADCQAQUAAgACAAAAADCLAQUAAgABAAAAADCFAQUAAgABAAAAADCAAQUAAgABAAAAADB6AQUAAgACAAAAADB1AQUAAgABAAAAADBvAQUAAgABAAAAADBqAQUAAgABAAAAADBkAQUAAgACAAAAADBeAQUAAgABAAAAADBZAQUAAgABAAAAADBUAQUAAgABAAAAADBOAQUAAgACAAAAADBIAQUAAgABAAAAADBDAQUAAgABAAAAADA+AQUAAgABAAAAADA4AQUAAgACAAAAADAyAQUAAgABAAAAADAtAQUAAgABAAAAADAoAQUAAgABAAAAADAiAQUAAgACAAAAADAbAQUAAgABAAAAADAXAQUAAgABAAAAADANAQUAAgACAAAAADAMAQUAAgACAAAAADAHAQUAAgACAAAAADABAQUAAgABAAAAADD8AAUAAgABAAAAADD2AAUAAgACAAAAADDxAAUAAgABAAAAADDrAAUAAgABAAAAADDmAAUAAgABAAAAADDgAAUAAgACAAAAADDaAAUAAgABAAAAADDVAAUAAgABAAAAADDQAAUAAgABAAAAADDKAAUAAgACAAAAADDEAAUAAgABAAAAADC/AAUAAgABAAAAADC6AAUAAgABAAAAADC0AAUAAgACAAAAADCvAAUAAgABAAAAADCpAAUAAgABAAAAADCkAAUAAgABAAAAADCeAAUAAgACAAAAADCZAAUAAgABAAAAADCTAAUAAgABAAAAADCOAAUAAgABAAAAADCIAAUAAgACAAAAADCCAAUAAgABAAAAADB9AAUAAgABAAAAADB4AAUAAgABAAAAADByAAUAAgACAAAAADBtAAUAAgABAAAAADBnAAUAAgABAAAAADBiAAUAAgABAAAAADBcAAUAAgACAAAAADBXAAUAAgABAAAAADBRAAUAAgABAAAAADBMAAUAAgABAAAAADBGAAUAAgACAAAAADBAAAUAAgABAAAAADA7AAUAAgABAAAAADA2AAUAAgABAAAAADAwAAUAAgACAAAAADAqAAUAAgABAAAAADAlAAUAAgABAAAAADAgAAUAAgABAAAAADAaAAUAAgACAAAAADAUAAUAAgABAAAAADAPAAUAAgABAAAAADAKAAUAAgABAAAAADAEAAUAAgACAAAAADD8/wAAAgABAAAAAFD8/wUAAgABAAAAAFD8/wsAAgACAAAAAFD8/xAAAgABAAAAAFD8/xYAAgABAAAAAFD8/xsAAgABAAAAAFD8/yEAAgACAAAAAFD8/ycAAgABAAAAAFD8/ywAAgABAAAAAFD8/zEAAgABAAAAAFD8/zcAAgACAAAAAFD8/z0AAgABAAAAAFD8/0IAAgABAAAAAFD8/0cAAgABAAAAAFD8/00AAgACAAAAAFD8/1IAAgABAAAAAFD8/1gAAgABAAAAAFD8/10AAgABAAAAAFD8/2MAAgACAAAAAFD8/2gAAgABAAAAAFD8/24AAgABAAAAAFD8/3MAAgABAAAAAFD8/3kAAgACAAAAAFA/AngAAgABAAAAAGA/Am4AAgACAAAAAGA/Am0AAgACAAAAAGA/AmgAAgACAAAAAGA/AmIAAgABAAAAAGA/Al0AAgABAAAAAGA/AlcAAgACAAAAAGA/AlIAAgABAAAAAGA/AkwAAgABAAAAAGA/AkcAAgABAAAAAGA/AkEAAgACAAAAAGA/AjsAAgABAAAAAGA/AjYAAgABAAAAAGA/AjEAAgABAAAAAGA/AisAAgACAAAAAGA/AiUAAgABAAAAAGA/AiAAAgABAAAAAGA/AhsAAgABAAAAAGA/AhUAAgACAAAAAGA/AhAAAgABAAAAAGA/AgoAAgABAAAAAGA/AgUAAgABAAAAAGA/Av//AgACAAAAAGD6/4EAAgACAAAAAAD7/4EAAgACAAAAAFBAAoEAAgABAAAAAAA=")
+tile_set = SubResource("TileSet_hbfth")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="TileMap"]
+position = Vector2(0, 0.99999994)
+scale = Vector2(0.05, 0.05)
+tile_map_data = PackedByteArray("AAAdAbACAAAAAAIAAAAeAbcCAAAAAAIAADC1AXYCAAAAAAIAAAC2AX0CAAAAAAIAADA/Aj0CAAAAAAIAAABAAkQCAAAAAAIAADDUAgECAAAAAAIAAADVAggCAAAAAAIAADBzA8EBAAAAAAIAAAB0A8gBAAAAAAIAADA=")
+tile_set = SubResource("TileSet_xv4fl")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("19_b6ymx")]

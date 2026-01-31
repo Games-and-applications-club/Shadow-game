@@ -1,4 +1,5 @@
 
+
 [gd_scene load_steps=15 format=4 uid="uid://cfc23yi78atxg"]
 
 [gd_scene load_steps=17 format=4 uid="uid://cfc23yi78atxg"]
@@ -14,9 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://dis51w61tfd60" path="res://Scenes/dark_area.tscn" id="7_73krw"]
 [ext_resource type="PackedScene" uid="uid://dipvumm27qjhr" path="res://Scenes/carton.tscn" id="8_rp4r7"]
 [ext_resource type="PackedScene" uid="uid://bv4huyauule0o" path="res://Scenes/mine_door.tscn" id="9_2xxgv"]
+
 [ext_resource type="PackedScene" uid="uid://c30o6jchmbqad" path="res://retryLayer.tscn" id="10_1gq8a"]
 [ext_resource type="PackedScene" uid="uid://cqhpr2qywg5gs" path="res://Scenes/gem.tscn" id="12_cuvvw"]
 [ext_resource type="PackedScene" uid="uid://so5cmct7d2t" path="res://Scenes/see-saw.tscn" id="10_1gq8a"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_enll3"]
 texture = ExtResource("1_enll3")
@@ -279,13 +282,13 @@ tile_map_data = PackedByteArray("AAAAACgAAAAIAAAAAAABACgAAAAIAAAAAAACACgAAAAIAAA
 tile_set = SubResource("TileSet_c0d6t")
 
 [node name="Main_Character" parent="." instance=ExtResource("4_dj4tb")]
-position = Vector2(76, 567.99994)
+position = Vector2(68, 628.00006)
 
 [node name="Shadow_Character" parent="." instance=ExtResource("3_upetf")]
-position = Vector2(76, 568)
+position = Vector2(68, 632.00006)
 
 [node name="Rock" parent="." instance=ExtResource("2_1kuu2")]
-position = Vector2(244, 482)
+position = Vector2(249, 612)
 
 [node name="Lever" parent="." node_paths=PackedStringArray("mine_door") instance=ExtResource("4_upetf")]
 position = Vector2(589, 609)
@@ -310,6 +313,13 @@ position = Vector2(998, 619)
 position = Vector2(561, 514)
 lever = NodePath("../Lever")
 
+
+[node name="Gem" parent="." instance=ExtResource("12_cuvvw")]
+position = Vector2(1010, 622)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("11_cuvvw")]
+
 [node name="RetryLayer" parent="." instance=ExtResource("10_1gq8a")]
 [node name="SeeSaw" parent="." instance=ExtResource("10_1gq8a")]
 position = Vector2(998, 625)
+

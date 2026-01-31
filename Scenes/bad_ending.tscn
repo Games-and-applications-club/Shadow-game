@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=2 format=3 uid="uid://c3xu7kl6oro2o"]
+
 
 [sub_resource type="LabelSettings" id="LabelSettings_0cagi"]
 font_size = 70
@@ -23,3 +25,13 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Bad Ending FF"
 label_settings = SubResource("LabelSettings_0cagi")
+
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 491.0
+offset_top = 455.0
+offset_right = 663.0
+offset_bottom = 505.0
+theme_override_font_sizes/font_size = 30
+text = "Main Menu"
+
