@@ -1,4 +1,8 @@
+
 [gd_scene format=3 uid="uid://d03rkkxo21qwk"]
+[gd_scene load_steps=2 format=3 uid="uid://obahou78e0ix"]
+
+[ext_resource type="Script" uid="uid://dp0d8vycloe" path="res://Scenes/retry_button.gd" id="1_mptft"]
 
 [node name="RetryButton" type="Control"]
 layout_mode = 3
@@ -7,6 +11,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+script = ExtResource("1_mptft")
+
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
