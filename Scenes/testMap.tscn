@@ -1,5 +1,13 @@
+
 [gd_scene load_steps=16 format=4 uid="uid://cfc23yi78atxg"]
 
+
+[gd_scene load_steps=15 format=4 uid="uid://cfc23yi78atxg"]
+
+[gd_scene load_steps=17 format=4 uid="uid://cfc23yi78atxg"]
+[gd_scene load_steps=15 format=4 uid="uid://cfc23yi78atxg"]
+
+[ext_resource type="Script" uid="uid://dyy1ksv6y5xv" path="res://Scenes/test_map.gd" id="1_88i40"]
 [ext_resource type="Texture2D" uid="uid://dfkyaojv0wdi" path="res://Assets/testTileset.png" id="1_enll3"]
 [ext_resource type="PackedScene" uid="uid://brctofar585na" path="res://Scenes/rock.tscn" id="2_1kuu2"]
 [ext_resource type="PackedScene" uid="uid://7bahjjk53nft" path="res://Scenes/Shadow_Character.tscn" id="3_upetf"]
@@ -11,6 +19,11 @@
 [ext_resource type="PackedScene" uid="uid://bv4huyauule0o" path="res://Scenes/mine_door.tscn" id="9_2xxgv"]
 [ext_resource type="PackedScene" uid="uid://tfhpt532fvae" path="res://Scenes/button.tscn" id="10_1gq8a"]
 [ext_resource type="PackedScene" uid="uid://cn5voocx0eqbb" path="res://seasaw.tscn" id="11_88i40"]
+
+[ext_resource type="PackedScene" uid="uid://c30o6jchmbqad" path="res://retryLayer.tscn" id="10_1gq8a"]
+[ext_resource type="PackedScene" uid="uid://cqhpr2qywg5gs" path="res://Scenes/gem.tscn" id="12_cuvvw"]
+[ext_resource type="PackedScene" uid="uid://so5cmct7d2t" path="res://Scenes/see-saw.tscn" id="10_1gq8a"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_enll3"]
 texture = ExtResource("1_enll3")
@@ -254,6 +267,7 @@ physics_layer_0/collision_mask = 15
 sources/0 = SubResource("TileSetAtlasSource_1kuu2")
 
 [node name="TestMap" type="Node2D"]
+script = ExtResource("1_88i40")
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2
@@ -272,13 +286,15 @@ tile_map_data = PackedByteArray("AAAAACgAAAAIAAAAAAABACgAAAAIAAAAAAACACgAAAAIAAA
 tile_set = SubResource("TileSet_c0d6t")
 
 [node name="Main_Character" parent="." instance=ExtResource("4_dj4tb")]
-position = Vector2(960.99994, 611)
+
+position = Vector2(68, 628.00006)
 
 [node name="Shadow_Character" parent="." instance=ExtResource("3_upetf")]
-position = Vector2(18, 536.00006)
+position = Vector2(68, 632.00006)
+
 
 [node name="Rock" parent="." instance=ExtResource("2_1kuu2")]
-position = Vector2(244, 482)
+position = Vector2(249, 612)
 
 [node name="Lever" parent="." node_paths=PackedStringArray("mine_door") instance=ExtResource("4_upetf")]
 position = Vector2(589, 609)
@@ -296,12 +312,23 @@ scale = Vector2(3, 3)
 position = Vector2(810, 604)
 mass = 1.0
 
+[node name="Gem" parent="." instance=ExtResource("12_cuvvw")]
+position = Vector2(998, 619)
+
 [node name="MineDoor" parent="." node_paths=PackedStringArray("lever") instance=ExtResource("9_2xxgv")]
 position = Vector2(561, 514)
 lever = NodePath("../Lever")
 
+
 [node name="Button" parent="." instance=ExtResource("10_1gq8a")]
 position = Vector2(23, 631)
 
-[node name="Seasaw" parent="." instance=ExtResource("11_88i40")]
-position = Vector2(980, 619)
+[node name="Gem" parent="." instance=ExtResource("12_cuvvw")]
+position = Vector2(1010, 622)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("11_cuvvw")]
+
+[node name="RetryLayer" parent="." instance=ExtResource("10_1gq8a")]
+[node name="SeeSaw" parent="." instance=ExtResource("10_1gq8a")]
+position = Vector2(998, 625)
+
