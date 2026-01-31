@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dis51w61tfd60"]
 
 [ext_resource type="Texture2D" uid="uid://c2vwxyo4lcy01" path="res://Assets/Ninja Frog/Jump (32x32).png" id="1_5frhe"]
-[ext_resource type="Script" uid="uid://dfulvi15npmpn" path="res://Scenes/dark_area.gd" id="1_lfbcy"]
+[ext_resource type="Script" uid="uid://dfulvi15npmpn" path="res://Assets/Scenes/dark_area.gd" id="1_lfbcy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfbcy"]
 
