@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=3 uid="uid://cn5voocx0eqbb"]
+
+[ext_resource type="Script" uid="uid://u81o8cjh3iw8" path="res://seasaw.gd" id="1_i5hn8"]
+[ext_resource type="Texture2D" uid="uid://fyauuh4mxqbn" path="res://Assets/Object/Seesaw bottom.png" id="1_kk7ai"]
+[ext_resource type="Texture2D" uid="uid://dlaj3bqhbpolw" path="res://Assets/Object/Seesaw top.png" id="2_i5hn8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yvuid"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kk7ai")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kk7ai"]
+size = Vector2(8, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ruiba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i5hn8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbiv1"]
+size = Vector2(92, 9)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i5hn8"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yvuid"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5hn8"]
+size = Vector2(46, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvuid"]
+size = Vector2(46, 2)
+
+[node name="Seasaw" type="Node2D"]
+position = Vector2(-7, 7)
+script = ExtResource("1_i5hn8")
+
+[node name="Pivot" type="StaticBody2D" parent="."]
+position = Vector2(7, -11)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
+position = Vector2(-9, 3)
+scale = Vector2(0.04, 0.04)
+sprite_frames = SubResource("SpriteFrames_yvuid")
+
+[node name="Woodsaw" type="CollisionShape2D" parent="Pivot"]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_kk7ai")
+
+[node name="Plank" type="StaticBody2D" parent="."]
+position = Vector2(7, -7)
+
+[node name="planksprite" type="AnimatedSprite2D" parent="Plank"]
+position = Vector2(-9, -7)
+scale = Vector2(0.04, 0.04)
+sprite_frames = SubResource("SpriteFrames_ruiba")
+
+[node name="plankobject" type="CollisionShape2D" parent="Plank"]
+shape = SubResource("RectangleShape2D_dbiv1")
+
+[node name="Tire1" type="CollisionShape2D" parent="Plank"]
+position = Vector2(-39, 8)
+shape = SubResource("CircleShape2D_i5hn8")
+
+[node name="Tire2" type="CollisionShape2D" parent="Plank"]
+position = Vector2(39, 9)
+shape = SubResource("CircleShape2D_yvuid")
+
+[node name="LeftZone" type="Area2D" parent="Plank"]
+position = Vector2(-23, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plank/LeftZone"]
+shape = SubResource("RectangleShape2D_i5hn8")
+
+[node name="RightZone" type="Area2D" parent="Plank"]
+position = Vector2(24, -7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plank/RightZone"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_yvuid")
