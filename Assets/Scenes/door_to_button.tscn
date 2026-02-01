@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnskv8gkfshev"]
+
+[ext_resource type="Script" uid="uid://ccs3skd42kr4" path="res://Assets/Scenes/door_to_button.gd" id="1_m2o5p"]
+[ext_resource type="Texture2D" uid="uid://dldbant20klnj" path="res://Assets/Ninja Frog/Object/ceiling door.png" id="1_wbtgp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2o5p"]
+size = Vector2(14, 57)
+
+[node name="DoorToButton" type="Node2D"]
+script = ExtResource("1_m2o5p")
+
+[node name="CeilingDoor" type="Sprite2D" parent="."]
+position = Vector2(12.000001, 3.999999)
+rotation = -1.5707964
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("1_wbtgp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+light_mask = 3
+visibility_layer = 3
+shape = SubResource("RectangleShape2D_m2o5p")

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # Movement tuning
 @export var speed := 200.0
-@export var gravity := 900.0
+@export var gravity := 1500.0
 @export var min_jump_force := -100.0  # Short tap
 @export var max_jump_force := -300.0  # Full hold
 @export var max_jump_hold := 0.3      # Seconds to reach full jump
@@ -12,7 +12,7 @@ var jump_hold_time := 0.0
 var jump_active := false  # true only during a valid jump
 
 # Clone / recording settings
-@export var clone_scene: PackedScene = preload("res://Scenes/Main_Character.tscn")
+@export var clone_scene: PackedScene = preload("res://Assets/Scenes/Main_Character.tscn")
 @export var max_record_time: float = 5.0 # maximum seconds to record when holding F
 
 # Internal state

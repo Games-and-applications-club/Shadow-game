@@ -12,9 +12,19 @@ var press_speed := 12.0       # how fast it moves
 var min_y := 0.0              # top position when unpressed
 var max_y := 8.0              # top position when fully pressed
 
+@export var door_path: NodePath
+var door
+
 func _ready():
 	detector.body_entered.connect(_on_body_entered)
 	detector.body_exited.connect(_on_body_exited)
+	if door_path != NodePath():
+		door = get_node(door_path)
+		print("Door found:", door)
+	else:
+		print("No door_path set on", self)
+
+
 
 func _physics_process(delta):
 	# Choose target based on pressed state
@@ -26,12 +36,17 @@ func _physics_process(delta):
 	# Clamp to ensure it never goes too far
 	top.position.y = clamp(top.position.y, min_y, max_y)
 
+
 func _on_body_entered(body):
 	if body.is_in_group("player"):
 		press_count += 1
 		if press_count == 1:
 			is_pressed = true
 	print("ENTERED:", body, "   press_count:", press_count)
+	if is_pressed == true:
+		door.raise_door()
+	else:
+		door.lower_door()
 
 func _on_body_exited(body):
 	if body.is_in_group("player"):
@@ -40,3 +55,7 @@ func _on_body_exited(body):
 		if press_count == 0:
 			is_pressed = false
 	print("ENTERED:", body, "   press_count:", press_count)
+	if is_pressed ==true:
+		door.raise_door()
+	else:
+		door.lower_door()

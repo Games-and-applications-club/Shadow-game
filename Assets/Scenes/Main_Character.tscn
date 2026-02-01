@@ -1,52 +1,52 @@
-[gd_scene load_steps=18 format=3 uid="uid://d31r43aw4ra4l"]
+[gd_scene load_steps=19 format=3 uid="uid://d31r43aw4ra4l"]
 
-[ext_resource type="Script" uid="uid://bsv2lxweu2ncs" path="res://Scripts/character_body_2d.gd" id="1_mnji8"]
-[ext_resource type="Texture2D" uid="uid://dc71wd6je1t27" path="res://Assets/Tile assets/idle animation/idleani1 sprite sheet.png" id="2_o8cir"]
-[ext_resource type="Texture2D" uid="uid://c43ebrd6yi3a7" path="res://Assets/Tile assets/walking animation/walkani1 sprite sheet.png" id="3_m6q3y"]
-[ext_resource type="PackedScene" uid="uid://ldcsly6qqcoq" path="res://Pause Menu/PauseMenu.tscn" id="3_o8cir"]
+[ext_resource type="Script" uid="uid://bsv2lxweu2ncs" path="res://Scripts/character_body_2d.gd" id="1_eyv7m"]
+[ext_resource type="Texture2D" uid="uid://dc71wd6je1t27" path="res://Assets/Tile assets/idle animation/idleani1 sprite sheet.png" id="2_djpf8"]
+[ext_resource type="Texture2D" uid="uid://c43ebrd6yi3a7" path="res://Assets/Tile assets/walking animation/walkani1 sprite sheet.png" id="3_2ox3t"]
+[ext_resource type="PackedScene" uid="uid://ldcsly6qqcoq" path="res://Pause Menu/PauseMenu.tscn" id="4_1gepi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6q3y"]
-atlas = ExtResource("2_o8cir")
+atlas = ExtResource("2_djpf8")
 region = Rect2(0, 0, 2000, 2000)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fla84"]
-atlas = ExtResource("2_o8cir")
+atlas = ExtResource("2_djpf8")
 region = Rect2(2000, 0, 2000, 2000)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u40a0"]
-atlas = ExtResource("2_o8cir")
+atlas = ExtResource("2_djpf8")
 region = Rect2(4000, 0, 2000, 2000)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_res4j"]
-atlas = ExtResource("2_o8cir")
+atlas = ExtResource("2_djpf8")
 region = Rect2(0, 2000, 2000, 2000)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l32m3"]
-atlas = ExtResource("2_o8cir")
+atlas = ExtResource("2_djpf8")
 region = Rect2(2000, 2000, 2000, 2000)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h7xal"]
-atlas = ExtResource("2_o8cir")
+atlas = ExtResource("2_djpf8")
 region = Rect2(4000, 2000, 2000, 2000)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e7gwl"]
-atlas = ExtResource("3_m6q3y")
+atlas = ExtResource("3_2ox3t")
 region = Rect2(0, 0, 2000, 2000)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ogfuv"]
-atlas = ExtResource("3_m6q3y")
+atlas = ExtResource("3_2ox3t")
 region = Rect2(2000, 0, 2000, 2000)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4s7rc"]
-atlas = ExtResource("3_m6q3y")
+atlas = ExtResource("3_2ox3t")
 region = Rect2(4000, 0, 2000, 2000)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_38qe4"]
-atlas = ExtResource("3_m6q3y")
+atlas = ExtResource("3_2ox3t")
 region = Rect2(0, 2000, 2000, 2000)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qd0xh"]
-atlas = ExtResource("3_m6q3y")
+atlas = ExtResource("3_2ox3t")
 region = Rect2(2000, 2000, 2000, 2000)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0bwfo"]
@@ -96,11 +96,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_et8ae"]
-size = Vector2(6.7872024, 22.28421)
+size = Vector2(12.216964, 23.87595)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyv7m"]
+size = Vector2(90.05084, 79.243904)
 
 [node name="Main_Character" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(0.23320158, 0.23976608)
-script = ExtResource("1_mnji8")
+script = ExtResource("1_eyv7m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-17.152542, -41.70732)
@@ -109,12 +112,20 @@ sprite_frames = SubResource("SpriteFrames_0bwfo")
 animation = &"Walking"
 frame_progress = 0.092652544
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.555928e-07, -8.341462)
-scale = Vector2(6.317972, 5.240504)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
+position = Vector2(-8.57627, -8.341456)
+scale = Vector2(6.317972, 5.240501)
 shape = SubResource("RectangleShape2D_et8ae")
 
-[node name="PauseMenu" parent="." instance=ExtResource("3_o8cir")]
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+scale = Vector2(1, 0.99999994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.1440678, -6.2560935)
+scale = Vector2(1, 0.9999999)
+shape = SubResource("RectangleShape2D_eyv7m")
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_1gepi")]
 offset_left = -51.457634
 offset_top = 16.682926
 offset_right = -51.457634

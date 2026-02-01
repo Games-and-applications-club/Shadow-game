@@ -33,7 +33,7 @@ size = Vector2(90.05084, 83.41465)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iswtg"]
 size = Vector2(90.05084, 79.243904)
 
-[node name="Shadow_Character" type="CharacterBody2D" groups=["player"]]
+[node name="Shadow_Character" type="CharacterBody2D" groups=["Shadow", "player"]]
 scale = Vector2(0.23320158, 0.23976608)
 collision_layer = 2
 collision_mask = 2
