@@ -3,16 +3,16 @@ extends CharacterBody2D
 # Movement tuning
 @export var speed := 200.0
 @export var gravity := 900.0
-@export var min_jump_force := -100.0  # Short tap
-@export var max_jump_force := -300.0  # Full hold
-@export var max_jump_hold := 0.3      # Seconds to reach full jump
+@export var min_jump_force := -100.0 # Short tap
+@export var max_jump_force := -300.0 # Full hold
+@export var max_jump_hold := 0.3 # Seconds to reach full jump
 
 var jump_pressed := false
 var jump_hold_time := 0.0
-var jump_active := false  # true only during a valid jump
+var jump_active := false # true only during a valid jump
 
 # Clone / recording settings
-@export var clone_scene: PackedScene = preload("res://Scenes/Main_Character.tscn")
+@export var clone_scene: PackedScene = preload("res://Assets/Scenes/Main_Character.tscn")
 @export var max_record_time: float = 5.0 # maximum seconds to record when holding F
 
 # Internal state
@@ -37,9 +37,7 @@ var buffer_max_frames := int(buffer_max_time / Engine.get_physics_ticks_per_seco
 
 	
 func _physics_process(delta):
-	
 	if Global.movable:
-
 		Global.record_input()
 		var input_vector = Vector2.ZERO
 		input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -54,7 +52,7 @@ func _physics_process(delta):
 		# Horizontal movement — constant speed, no sliding
 		velocity.x = 0.0
 		if Input.is_action_pressed("move_left"):
-			velocity.x = -speed
+			velocity.x = - speed
 			anim.play("Walking")
 		elif Input.is_action_pressed("move_right"):
 			velocity.x = speed
@@ -85,11 +83,6 @@ func _physics_process(delta):
 			var col = get_slide_collision(i)
 			if col.get_collider() is RigidBody2D:
 				col.get_collider().apply_central_impulse(-col.get_normal() * 10)
-
-
-
-
-
 
 
 func _start_recording() -> void:

@@ -1,11 +1,11 @@
 extends Node2D
 
-@export var rock_scene: PackedScene = preload("res://Scenes/rock.tscn")
+@export var rock_scene: PackedScene = preload("res://Assets/Scenes/rock.tscn")
 @export var mine_door: StaticBody2D
 
 var used = 0
 var max = 0
-var player_inside= false
+var player_inside = false
 var label_node = null
 
 func _ready() -> void:
@@ -13,7 +13,7 @@ func _ready() -> void:
 		max = mine_door.max
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "Main_Character" && used <max:
+	if body.name == "Main_Character" && used < max:
 		label_node = body.get_node("Label")
 		player_inside = true
 		label_node.visible = true;
@@ -28,7 +28,7 @@ func _process(delta):
 		pulled()
 		
 func pulled():
-	if used<max:
+	if used < max:
 		mine_door.drop(used)
 		used += 1
 		label_node.visible = false;
