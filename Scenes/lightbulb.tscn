@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://xjkeekv552kr"]
 
-[ext_resource type="Script" path="res://Scenes/lightbulb.gd" id="1_2rg4l"]
+[ext_resource type="Script" uid="uid://bgwurk17mfhjn" path="res://Scenes/lightbulb.gd" id="1_2rg4l"]
 [ext_resource type="Texture2D" uid="uid://o8i0dimljotb" path="res://Assets/icon.svg" id="2_sauaj"]
 [ext_resource type="Texture2D" uid="uid://d3f66jdw1dct3" path="res://Assets/Ninja Frog/Fall (32x32).png" id="3_npnhn"]
 

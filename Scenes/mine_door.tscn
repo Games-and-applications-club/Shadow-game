@@ -1,19 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://bv4huyauule0o"]
 
-[ext_resource type="Texture2D" uid="uid://o8i0dimljotb" path="res://Assets/icon.svg" id="1_6o0de"]
 [ext_resource type="Script" uid="uid://ddyw0ckeanhvf" path="res://Scenes/mine_door.gd" id="1_omvn6"]
+[ext_resource type="Texture2D" uid="uid://cdooika07b6wp" path="res://Assets/Object/ceiling door redo (1).png" id="2_omvn6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6o0de"]
-size = Vector2(65, 6)
+size = Vector2(65, 17)
 
 [node name="MineDoor" type="StaticBody2D"]
 script = ExtResource("1_omvn6")
+falling_objects = ["rock", "carton", "rock", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -1.1920929e-07)
-scale = Vector2(0.5, 0.046874996)
-texture = ExtResource("1_6o0de")
+position = Vector2(1, 3)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("2_omvn6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
+position = Vector2(0.5, 5.5)
 shape = SubResource("RectangleShape2D_6o0de")
