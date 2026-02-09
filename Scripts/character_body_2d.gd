@@ -37,46 +37,48 @@ var buffer_max_frames := int(buffer_max_time / Engine.get_physics_ticks_per_seco
 
 	
 func _physics_process(delta):
-
-	Global.record_input()
-	var input_vector = Vector2.ZERO
-	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	# Flip sprite based on direction
-	if input_vector.x < 0:
-		anim.flip_h = true
-	elif input_vector.x > 0:
-		anim.flip_h = false
-	#idle Checker
-	if input_vector == Vector2.ZERO:
-		anim.play("Idle")
-	# Horizontal movement — constant speed, no sliding
-	velocity.x = 0.0
-	if Input.is_action_pressed("move_left"):
-		velocity.x = -speed
-		anim.play("Walking")
-	elif Input.is_action_pressed("move_right"):
-		velocity.x = speed
-		anim.play("Walking")
-	# Gravity
-	velocity.y += gravity * delta
-
-	# Jump logic
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		jump_pressed = true
-		jump_active = true
-		jump_hold_time = 0.0
+	
+	if Global.movable == true:
 		
-	# Continue jump while held and within time
-	if jump_active and Input.is_action_pressed("jump"):
-		jump_hold_time += delta
-		var t: float = clamp(jump_hold_time / max_jump_hold, 0.0, 1.0)
-		velocity.y = lerp(min_jump_force, max_jump_force, t)
+		Global.record_input()
+		var input_vector = Vector2.ZERO
+		input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+		# Flip sprite based on direction
+		if input_vector.x < 0:
+			anim.flip_h = true
+		elif input_vector.x > 0:
+			anim.flip_h = false
+		#idle Checker
+		if input_vector == Vector2.ZERO:
+			anim.play("Idle")
+		# Horizontal movement — constant speed, no sliding
+		velocity.x = 0.0
+		if Input.is_action_pressed("move_left"):
+			velocity.x = -speed
+			anim.play("Walking")
+		elif Input.is_action_pressed("move_right"):
+			velocity.x = speed
+			anim.play("Walking")
+		# Gravity
+		velocity.y += gravity * delta
 
-	# End jump if released or max time reached
-	if Input.is_action_just_released("jump") or jump_hold_time >= max_jump_hold:
-		jump_active = false
+		# Jump logic
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			jump_pressed = true
+			jump_active = true
+			jump_hold_time = 0.0
+			
+		# Continue jump while held and within time
+		if jump_active and Input.is_action_pressed("jump"):
+			jump_hold_time += delta
+			var t: float = clamp(jump_hold_time / max_jump_hold, 0.0, 1.0)
+			velocity.y = lerp(min_jump_force, max_jump_force, t)
 
-	move_and_slide()
+		# End jump if released or max time reached
+		if Input.is_action_just_released("jump") or jump_hold_time >= max_jump_hold:
+			jump_active = false
+
+		move_and_slide()
 	
 
 	for i in get_slide_collision_count():

@@ -1,9 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dis51w61tfd60"]
 
-[ext_resource type="Texture2D" uid="uid://c2vwxyo4lcy01" path="res://Assets/Ninja Frog/Jump (32x32).png" id="1_5frhe"]
 [ext_resource type="Script" uid="uid://dfulvi15npmpn" path="res://Scenes/dark_area.gd" id="1_lfbcy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfbcy"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5frhe"]
 
 [node name="DarkArea" type="Area2D"]
 collision_layer = 3
@@ -14,7 +15,9 @@ script = ExtResource("1_lfbcy")
 shape = SubResource("RectangleShape2D_lfbcy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.625, 0.609375)
-texture = ExtResource("1_5frhe")
+modulate = Color(0, 0, 0, 0.5294118)
+position = Vector2(4.7683716e-07, 4.7683716e-07)
+scale = Vector2(20, 20.000002)
+texture = SubResource("CanvasTexture_5frhe")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

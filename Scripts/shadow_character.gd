@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var max_jump_force := -300.0
 @export var max_jump_hold := 0.3
 
+@onready var anim = $AnimatedSprite2D2
+
 var jump_hold_time := 0.0
 var jump_active := false
 
@@ -15,6 +17,9 @@ func _ready() -> void:
 func _physics_process(delta):
 	# Always apply gravity
 	velocity.y += gravity * delta
+	
+	if velocity.x ==0:
+		anim.play("Idle")
 
 	# Only start replaying once buffer is full
 	if Global.input_buffer.size() >= Global.buffer_max_frames:
@@ -29,8 +34,12 @@ func apply_input(input: Dictionary, delta: float):
 	velocity.x = 0.0
 	if input.get("left", false):
 		velocity.x = -speed
+		anim.play("Walking")
+		anim.flip_h = true
 	elif input.get("right", false):
 		velocity.x = speed
+		anim.play("Walking")
+		anim.flip_h = false
 
 	# Jump logic
 	if input.get("jump", false) and is_on_floor() and not jump_active:

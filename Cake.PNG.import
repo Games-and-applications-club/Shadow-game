@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn35afugpckbl"
-path="res://.godot/imported/blue_gem.png-e47846dfe67815691ffe6b3728d96245.ctex"
+uid="uid://cpn8er5nbqr1m"
+path="res://.godot/imported/Cake.PNG-e690fd37cb4dec87b64fb1478257eab1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Object/blue_gem.png"
-dest_files=["res://.godot/imported/blue_gem.png-e47846dfe67815691ffe6b3728d96245.ctex"]
+source_file="res://Cake.PNG"
+dest_files=["res://.godot/imported/Cake.PNG-e690fd37cb4dec87b64fb1478257eab1.ctex"]
 
 [params]
 

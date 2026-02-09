@@ -7,8 +7,8 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Main_Character":
-		#if Global.day > 0happyEndingDate:
-		await layer.fade(1.0, 1.5).finished
-		get_tree().change_scene_to_file("res://Scenes/BadEnding.tscn")
-		#else:
-			#get_tree().change_scene_to_file("res://Scenes/happyEnding.tscn")
+		if Global.day > happyEndingDate:
+			await layer.fade(1.0, 1.5).finished
+			get_tree().change_scene_to_file("res://Scenes/BadEnding.tscn")
+		else:
+			get_tree().change_scene_to_file("res://Scenes/happyEnding.tscn")

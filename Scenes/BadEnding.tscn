@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dohk45jufvh6a"]
+[gd_scene load_steps=4 format=3 uid="uid://dohk45jufvh6a"]
 
 [ext_resource type="Script" uid="uid://bxsjw2jv6ds4g" path="res://Scenes/bad_ending.gd" id="1_uiqoi"]
+[ext_resource type="Texture2D" uid="uid://bha8u2im3my7q" path="res://Assets/Object/skeleton spritesheet calciumtrice.png" id="2_wpbe2"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4bpxb"]
 
 [node name="BadEnding" type="Control"]
 layout_mode = 3
@@ -10,6 +13,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uiqoi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(503.12503, 286.87497)
+scale = Vector2(2257.7502, 992.25006)
+texture = SubResource("CanvasTexture_4bpxb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -33,6 +41,7 @@ offset_right = 235.5
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
 text = "Bad Ending FF"
 
@@ -50,5 +59,19 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 40
 text = "Go Back To Main Menu"
+
+[node name="SkeletonSpritesheetCalciumtrice" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(197, 184)
+rotation = -0.46251225
+scale = Vector2(7.3906245, 8.70588)
+texture = ExtResource("2_wpbe2")
+
+[node name="SkeletonSpritesheetCalciumtrice2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(970, 152.00002)
+rotation = 0.5131268
+scale = Vector2(7.3906245, 8.70588)
+texture = ExtResource("2_wpbe2")
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

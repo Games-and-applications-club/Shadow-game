@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3dlmhid5ak85"]
+[gd_scene load_steps=4 format=3 uid="uid://c3dlmhid5ak85"]
 
-[ext_resource type="Script" path="res://Scenes/happy_ending.gd" id="1_es8og"]
+[ext_resource type="Script" uid="uid://u1gcn6py7hbx" path="res://Scenes/happy_ending.gd" id="1_es8og"]
+[ext_resource type="Texture2D" uid="uid://cpn8er5nbqr1m" path="res://Cake.PNG" id="2_b82rs"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_8ourj"]
 
 [node name="HappyEnding" type="Control"]
 layout_mode = 3
@@ -10,6 +13,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_es8og")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0.5019608, 1)
+position = Vector2(611.25, 329.25)
+scale = Vector2(1223.5, 659.5)
+texture = SubResource("CanvasTexture_8ourj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -50,5 +59,19 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 40
 text = "Go Back to Main Menu"
+
+[node name="Cake" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(151, 150)
+rotation = -0.36651915
+scale = Vector2(5, 5)
+texture = ExtResource("2_b82rs")
+
+[node name="Cake2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(929, 162)
+rotation = 0.48694685
+scale = Vector2(5, 5)
+texture = ExtResource("2_b82rs")
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
