@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dis51w61tfd60"]
+
+[ext_resource type="Texture2D" uid="uid://c2vwxyo4lcy01" path="res://Assets/Ninja Frog/Jump (32x32).png" id="1_5frhe"]
+[ext_resource type="Script" uid="uid://dfulvi15npmpn" path="res://Assets/Scenes/dark_area.gd" id="1_lfbcy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfbcy"]
+
+[node name="DarkArea" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_lfbcy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lfbcy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.625, 0.609375)
+texture = ExtResource("1_5frhe")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

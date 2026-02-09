@@ -1,0 +1,122 @@
+[gd_scene load_steps=2 format=3 uid="uid://bflh2vym73h4s"]
+
+[ext_resource type="Script" uid="uid://be8pks61heymq" path="res://Assets/Scenes/level_picker.gd" id="1_e7i28"]
+
+[node name="LevelPicker" type="Node2D"]
+script = ExtResource("1_e7i28")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = -38.0
+offset_top = -95.0
+offset_right = 567.0
+offset_bottom = 130.0
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Level1Entry" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="level1Button" type="Button" parent="VBoxContainer/GridContainer/Level1Entry"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Level 1"
+
+[node name="Level2Entry" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="level2Button" type="Button" parent="VBoxContainer/GridContainer/Level2Entry"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Level 2
+"
+
+[node name="Level3Entry" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="level3Button" type="Button" parent="VBoxContainer/GridContainer/Level3Entry"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Level 3"
+
+[node name="Level4Entry" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="level4Button" type="Button" parent="VBoxContainer/GridContainer/Level4Entry"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Level 4"
+
+[node name="Level5Entry" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="level5Button" type="Button" parent="VBoxContainer/GridContainer/Level5Entry"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Level 5
+"
+
+[node name="Level6Entry" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="level6Button" type="Button" parent="VBoxContainer/GridContainer/Level6Entry"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Level 6
+"
+
+[node name="Level7Entry" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="level7Button" type="Button" parent="VBoxContainer/GridContainer/Level7Entry"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Level 7
+"
+
+[node name="Level8Entry" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="level8Button" type="Button" parent="VBoxContainer/GridContainer/Level8Entry"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Level 8
+"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(264.00003, 75.000015)
+scale = Vector2(0.4, 0.4)
+zoom = Vector2(1.9, 1.9)
+
+[node name="ExitContainer" type="HBoxContainer" parent="."]
+offset_left = 211.0
+offset_top = 164.0
+offset_right = 319.0
+offset_bottom = 210.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ExitButton" type="Button" parent="ExitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level1Entry/level1Button" to="." method="_on_level_1_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level2Entry/level2Button" to="." method="_on_level_2_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level3Entry/level3Button" to="." method="_on_level_3_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level4Entry/level4Button" to="." method="_on_level_4_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level5Entry/level5Button" to="." method="_on_level_5_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level6Entry/level6Button" to="." method="_on_level_6_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level7Entry/level7Button" to="." method="_on_level_7_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level8Entry/level8Button" to="." method="_on_level_8_button_pressed"]
+[connection signal="pressed" from="ExitContainer/ExitButton" to="." method="_on_exit_button_pressed"]

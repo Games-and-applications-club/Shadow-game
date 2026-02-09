@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://so5cmct7d2t"]
+
+[ext_resource type="Texture2D" uid="uid://o8i0dimljotb" path="res://Assets/icon.svg" id="1_rxdet"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwsrs"]
+size = Vector2(128, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxdet"]
+size = Vector2(10, 18)
+
+[node name="SeeSaw" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(0, -5.5)
+scale = Vector2(1, 0.039062526)
+texture = ExtResource("1_rxdet")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_pwsrs")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(0, 6)
+scale = Vector2(0.078125, 0.14453125)
+texture = ExtResource("1_rxdet")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_rxdet")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(0, -3)
+node_a = NodePath("../RigidBody2D")
+node_b = NodePath("../StaticBody2D")
