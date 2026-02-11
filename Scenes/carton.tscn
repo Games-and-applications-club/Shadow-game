@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dipvumm27qjhr"]
 
-[ext_resource type="Texture2D" uid="uid://o8i0dimljotb" path="res://Assets/icon.svg" id="1_8togn"]
 [ext_resource type="Script" uid="uid://dxffv2xk4putr" path="res://Scenes/carton.gd" id="1_y7oky"]
+[ext_resource type="Texture2D" uid="uid://b64flqqua8cqx" path="res://Assets/Tile assets/Adobe Express - file (1).png" id="2_y7oky"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8togn"]
 
@@ -9,8 +9,10 @@
 size = Vector2(23, 22)
 
 [node name="Carton" type="RigidBody2D"]
-physics_material_override = SubResource("PhysicsMaterial_8togn")
+collision_layer = 3
+collision_mask = 3
 mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_8togn")
 lock_rotation = true
 linear_damp = 1.0
 angular_damp = 10.0
@@ -18,9 +20,9 @@ script = ExtResource("1_y7oky")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.69803923)
-position = Vector2(-0.49999893, -1.1920929e-07)
-scale = Vector2(0.1796875, 0.171875)
-texture = ExtResource("1_8togn")
+position = Vector2(-3.000001, -2)
+scale = Vector2(0.03925, 0.039499998)
+texture = ExtResource("2_y7oky")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://corvxelxqqfvl"
-path="res://.godot/imported/carton.jpg-25ba5342858c833b6ac7614408953df6.ctex"
+uid="uid://b64flqqua8cqx"
+path="res://.godot/imported/Adobe Express - file (1).png-feeca56a7de07e17fa159c5086a3bc0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tile assets/carton.jpg"
-dest_files=["res://.godot/imported/carton.jpg-25ba5342858c833b6ac7614408953df6.ctex"]
+source_file="res://Assets/Tile assets/Adobe Express - file (1).png"
+dest_files=["res://.godot/imported/Adobe Express - file (1).png-feeca56a7de07e17fa159c5086a3bc0b.ctex"]
 
 [params]
 

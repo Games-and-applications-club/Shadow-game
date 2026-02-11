@@ -495,7 +495,7 @@ falling_objects = ["carton", "carton", "carton"]
 lever = NodePath("../../Levers/Lever3")
 
 [node name="MineDoor4" parent="MineDoors" node_paths=PackedStringArray("lever") instance=ExtResource("15_54sio")]
-position = Vector2(990, -77)
+position = Vector2(726, -57)
 falling_objects = ["carton", "carton", "carton"]
 lever = NodePath("../../Levers/Lever4")
 
@@ -511,10 +511,9 @@ tile_map_data = PackedByteArray("AAAJACYAAAALAAIAAAAKACYAAAALAAIAAAALACYAAAALAAI
 tile_set = SubResource("TileSet_2mwsi")
 
 [node name="Shadow_Character" parent="." instance=ExtResource("11_8ecpo")]
-position = Vector2(85.99999, 600.00006)
+position = Vector2(86, 591)
 
 [node name="Main_Character" parent="." instance=ExtResource("2_5k54k")]
-position = Vector2(28, 294.00003)
+position = Vector2(86, 593)
 
 [node name="RetryLayer" parent="." instance=ExtResource("19_b6ymx")]
-visible = false
